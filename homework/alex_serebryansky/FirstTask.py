@@ -64,4 +64,3 @@ class EntriesCount:
                     continue
 
         return entries
-
