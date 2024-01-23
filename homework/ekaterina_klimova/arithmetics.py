@@ -5,3 +5,4 @@ arith = (x + y) / 2
 geom = sqrt(x * y)
 
 print(f'average = {arith}, geometric mean = {geom}')
+
