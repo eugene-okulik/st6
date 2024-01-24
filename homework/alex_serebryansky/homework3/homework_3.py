@@ -7,6 +7,6 @@ amount = int(input("How much money do you have?: "))
 economy = int(input("How much money can you save per month?: "))
 
 print(f"\nHello, {name}! You don't have {price - amount}$ to buy a {wish}\n\n"
-      f"Purchase option: {amount > price}\n\n"
+      f"Purchase option: {amount >= price}\n\n"
       f"{ceil((price - amount) / economy)} months left until purchase!"
       )
