@@ -11,5 +11,3 @@ saving = float(input(print("сколько можете отложить в ме
 print(f'Привет, {name}. На покупку {purchase} тебе не хватает {cash - cost}')
 print(f'Возможность совершения покупки: {(cash - cost) >= 0}')
 print(f'До покупки осталось {(cost - cash)/saving} месяцев')
-
-
