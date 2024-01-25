@@ -13,10 +13,7 @@ cash = float(input())
 print("сколько можете отложить в месяц?")
 saving = float(input())
 
-if (cash - cost) < 0:
-    print(f'Привет, {name}. На покупку {purchase} тебе не хватает {cost - cash}')
-    print(f'Возможность совершения покупки: {(cash - cost) >= 0}')
-    print(f'До покупки осталось {(cost - cash)/saving} месяцев')
-    print('Желаем успехов и верь в мечту!')
-else:
-    print(f'А ты богатенький Буратино, {name}! Скорее беги за {purchase}')
+print(f'Привет, {name}. На покупку {purchase} тебе не хватает {cash - cost}')
+print(f'Возможность совершения покупки: {(cash - cost) >= 0}')
+print(f'До покупки осталось {(cost - cash)/saving} месяцев')
+
