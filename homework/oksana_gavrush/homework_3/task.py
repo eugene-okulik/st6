@@ -1,0 +1,10 @@
+print('Здравствуйте!')
+user_name = input('Как вас зовут?: ')
+item_to_buy = input('Что вы хотите купить?: ')
+item_price = int(input('Cколько это стоит?: '))
+user_savings = int(input('Сколько у вас есть?: '))
+monthly_savings = int(input('Сколько можете отложить в месяц?: '))
+
+print(f'Привет, {user_name}. На покупку {item_to_buy} тебе не хватает {item_price - user_savings}')
+print(f'Возможность совершения покупки: {item_price <= user_savings}')
+print(f'До покупки осталось {(item_price - user_savings) // monthly_savings} месяцев')
