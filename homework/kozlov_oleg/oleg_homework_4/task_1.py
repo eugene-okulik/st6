@@ -10,10 +10,11 @@ my_dict = {
                  }
         }
 
-my_dict['list'].append(11)
-my_dict['list'].remove(7)
-my_dict['dict'].update({'i am a tuple': 1})
-my_dict['dict'].pop('one')
-my_dict['set'].add(0)
-my_dict['set'].remove(15)
-print(my_dict)
+# my_dict['list'].append(11)
+# my_dict['list'].remove(7)
+my_dict['dict'].update({'i am a tuple': 'yes'})
+print(my_dict['dict'])
+# my_dict['dict'].pop('one')
+# my_dict['set'].add(0)
+# my_dict['set'].remove(15)
+# print(my_dict)
