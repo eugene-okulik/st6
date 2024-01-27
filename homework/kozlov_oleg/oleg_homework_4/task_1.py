@@ -7,7 +7,8 @@ my_dict = {
 print(my_dict['tuple'][-1])
 my_dict['list'].append(11)
 del my_dict['list'][1]
-my_dict['dict'].append({'i am a tuple': 'yes'})
+my_dict.setdefault('i am a tuple', []).append(1)
+print(my_dict['dict'])
 my_dict['dict'].pop('one')
 my_dict['set'].add(0)
 my_dict['set'].remove(15)
