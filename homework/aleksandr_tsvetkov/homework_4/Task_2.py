@@ -16,9 +16,3 @@ print(number2)
 index_result3 = text3.index(':') + 2
 number3 = int(text3[index_result3:]) + 10
 print(number3)
-
-
-#
-
-
-
