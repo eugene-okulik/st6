@@ -9,6 +9,5 @@ mounths = sum_price / int(save_money)
 text = 'Привет ' + name.title() + '!' + 'На покупку ' + product.title() + ' тебе не хватает ' + str(sum_price)
 print(text)
 print(f"Возможность совершения покупки: ")
-print(f'{int(sum_price)}' in price)
+print(sum_price is price)
 print(f"До покупки осталось {mounths} месяцев")
-
