@@ -1,6 +1,6 @@
-my_dict = {'tuple': ("Pinocchio", "malvina", "artemon", "Karabas", "tortilla"), 
+my_dict = {'tuple': ("Pinocchio", "malvina", "artemon", "Karabas", "tortilla"),
            'list': ['leech', 'worm', 'caterpillar', 'slug', 'scolopendra'],
-           'dict': {1:1, 2:2, 3:3, 4:4, 5:5}, 'set': {1, 2, 3, 4, 5}}
+           'dict': {1: 1, 2: 2, 3: 3, 4: 4, 5: 5}, 'set': {1, 2, 3, 4, 5}}
 
 print("tuple: выведите на экран последний элемент")
 print(my_dict['tuple'][-1])
@@ -18,7 +18,7 @@ print(my_dict['list'])
 print()
 
 print("dict: добавьте элемент с ключом ('i am a tuple',) и любым значением")
-d = my_dict['dict'] 
+d = my_dict['dict']
 d.update({'i am a tuple': 1})
 print(my_dict['dict'])
 print()
