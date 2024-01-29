@@ -9,12 +9,12 @@ print(last_element)
 
 # Для того, что хранится под ключом ‘list’: добавьте в конец списка еще один элемент, удалите второй элемент списка
 my_dict['list'].append('Element is added')
-my_dict['list'].pop(2)
+my_dict['list'].pop(1)
 # print(my_dict['list'])
 
 # Для того, что хранится под ключом ‘dict’: добавьте элемент с ключом ('i am a tuple',) и любым значением
 # удалите какой-нибудь элемент
-my_dict['dict']['i am a tuple'] = 10
+my_dict['dict'][('i am a tuple',)] = (10, 20, 30, 40, 50)
 my_dict['dict'].pop('salary')
 # print(my_dict['dict'])
 
