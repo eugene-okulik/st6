@@ -14,7 +14,7 @@ print(type_difference['list'])
 type_difference['list'].pop(1)
 print(type_difference['list'])
 
-type_difference['dict']['i am a tuple'] = ('27.01.2024',)
+type_difference['dict'][('i am a tuple',)] = ('27.01.2024',)
 print(type_difference['dict'])
 type_difference['dict'].pop('profession')
 print(type_difference['dict'])
