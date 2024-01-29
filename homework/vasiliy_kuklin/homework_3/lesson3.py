@@ -8,6 +8,10 @@ sum_price = int(price) - int(money)
 mounths = sum_price / int(save_money)
 text = 'Привет ' + name.title() + '!' + 'На покупку ' + product.title() + ' тебе не хватает ' + str(sum_price)
 print(text)
-print(f"Возможность совершения покупки: ")
-print(sum_price is price)
+
+if price > money:
+    print(f"Возможность совершения покупки: False")
+else:
+    print(f"Возможность совершения покупки: True")
+
 print(f"До покупки осталось {mounths} месяцев")
