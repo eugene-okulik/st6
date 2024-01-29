@@ -6,12 +6,8 @@ save_money = input("Сколько можете отложить в месяц? 
 
 sum_price = int(price) - int(money)
 mounths = sum_price / int(save_money)
-text = 'Привет ' + name.title() + '!' + 'На покупку ' + product.title() + ' тебе не хватает ' + str(sum_price)
+text = 'Привет ' + name.title() + '!' + ' На покупку ' + product.title() + ' тебе не хватает ' + str(sum_price)
 print(text)
-
-if price > money:
-    print(f"Возможность совершения покупки: False")
-else:
-    print(f"Возможность совершения покупки: True")
-
+print("Возможность совершения покупки: ")
+print(money >= price)
 print(f"До покупки осталось {mounths} месяцев")
