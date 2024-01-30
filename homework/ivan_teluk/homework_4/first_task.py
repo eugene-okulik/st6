@@ -3,7 +3,7 @@ my_dict = {
     'list': ['first', 'second', 'third', 'fourth', 'fifth'],
     'dict': {'dict1': 'value1', 2: 'value2', 3: 'value3', 4: 'value4', 5: 'value5'},
     'set': {'set1', 'set2', 'set3', 'set4', 'set5'}
-    }
+}
 print(my_dict['tuple'][-1])     # Выводим на экран последний элемент из значения ключа tuple
 my_dict['list'].append('sixth')     # Добавляем элемент в конец списка значения ключа list
 my_dict['list'].pop(1)      # Удаляем второй элемент из значения ключа list
