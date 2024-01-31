@@ -5,7 +5,7 @@ text_list = text.split()
 new_text_list = []
 for word in text_list:
     if word.endswith(',') or word.endswith('.'):
-        word = word[:(len(word)-1)] + 'ing' + word[(len(word)-1):]
+        word = word[:(len(word) - 1)] + 'ing' + word[(len(word) - 1):]
     else:
         word = word + 'ing'
 
