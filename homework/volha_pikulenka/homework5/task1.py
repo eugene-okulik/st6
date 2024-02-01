@@ -9,4 +9,4 @@ for word in split_text:
     else:
         word = word + 'ing'
     ing_plus_text = word
-    print(ing_plus_text, end = ' ')
+    print(ing_plus_text, end=' ')
