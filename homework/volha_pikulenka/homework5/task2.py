@@ -25,4 +25,5 @@ for number in range(1,101):
         print("Fuzz")
     elif number%5==0:
         print("Buzz")
-    else: print(number)
+    else:
+        print(number)

@@ -6,7 +6,8 @@
 # Если после слова идет запятая или точка, этот знак препинания должен
 # идти после того же слова, но уже преобразованного.
 
-init_text = 'Etiam tincidunt neque erat, quis molestie enim imperdiet vel. Integer urna nisl, facilisis vitae semper at, dignissim vitae libero'
+init_text = ('Etiam tincidunt neque erat, quis molestie enim imperdiet vel. '\
+            'Integer urna nisl, facilisis vitae semper at, dignissim vitae libero')
 
 split_text = init_text.split()
 
@@ -18,5 +19,5 @@ for word in split_text:
     else:
         word = word + 'ing'
     ing_plus_text = word
-    print(ing_plus_text, end=' ')
+    print(ing_plus_text, end = ' ')
     
