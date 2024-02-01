@@ -10,7 +10,7 @@ print(f"Last element in tuple is - {my_dict['tuple'][-1]}\n")
 my_dict['list'].append(False)
 my_dict['list'].pop(1)
 
-my_dict['dict']['i am a tuple'] = (5, 'six')
+my_dict['dict'][('i am a tuple',)] = (5, 'six')
 my_dict['dict'].pop('value_5')
 
 my_dict['set'].add('some element')
