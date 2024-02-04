@@ -7,6 +7,7 @@ def sum(a):
     c = int(b[1]) + 10
     return c
 
+
 print(sum(s1))
 print(sum(s2))
 print(sum(s3))
