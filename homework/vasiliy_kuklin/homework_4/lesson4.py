@@ -25,4 +25,3 @@ last_num_second = ((second.index(': ')) + 2)
 print(int(second[last_num_second:]) + 10)
 last_num_third = ((third.index(': ')) + 2)
 print(int(third[last_num_third]) + 10)
-
