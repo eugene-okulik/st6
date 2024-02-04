@@ -1,4 +1,5 @@
-s = "Etiam tincidunt neque erat, quis molestie enim imperdiet vel. Integer urna nisl, facilisis vitae semper at, dignissim vitae libero"
+s = '''Etiam tincidunt neque erat, quis molestie enim imperdiet vel. Integer urna nisl,
+       facilisis vitae semper at, dignissim vitae libero'''
 s1 = s.split()
 print(s1)
 s2 = []
