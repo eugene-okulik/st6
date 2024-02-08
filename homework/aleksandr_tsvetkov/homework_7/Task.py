@@ -2,13 +2,10 @@
 # Распечатайте из этого списка пятое число, двухсотое число, тысячное число, стотысячное число
 
 def fibonacci():
-    prev_num = 0
-    next_num = 1
+    prev_num, next_num = 0, 1
     while True:
         yield prev_num
-        old_prev_num = prev_num
-        prev_num = next_num
-        next_num = old_prev_num + next_num
+        prev_num, next_num = next_num, prev_num + next_num
 
 
 counter = 0
