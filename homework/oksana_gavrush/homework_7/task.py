@@ -9,7 +9,7 @@ for i in gen_fibonacci_numbers(100_000):
     numbers.append(i)
 
 
-print(numbers[5-1])
-print(numbers[200-1])
-print(numbers[1000-1])
-print(numbers[100000-1])
+print(numbers[5 - 1])
+print(numbers[200 - 1])
+print(numbers[1000 - 1])
+print(numbers[100000 - 1])
