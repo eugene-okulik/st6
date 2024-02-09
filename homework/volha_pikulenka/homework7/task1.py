@@ -7,10 +7,11 @@ def fibonacci_gen():
 
 fib = fibonacci_gen()
 fib_int = []
+count = 0
+print_cont = [4, 19, 9999, 99999]
 for _ in range(100_000):
-    fib_int.append(next(fib))
-
-print(fib_int[4])
-print(fib_int[199])
-print(fib_int[9999])
-print(fib_int[99999])
+    next(fib)
+    count +=1
+    for i in print_cont:
+        if count == i:
+            print(next(fib))
