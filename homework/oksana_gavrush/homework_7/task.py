@@ -1,15 +1,20 @@
-def gen_fibonacci_numbers(n, a=0, b=1):
-    for _ in range(n):
-        yield a
-        a, b = b, a + b
+def get_fibonacci():
+    a, b = 0, 1
+    while True:
+        yield b
+        b = a + b
+        a = b - a
 
 
-numbers = []
-for i in gen_fibonacci_numbers(100_000):
-    numbers.append(i)
+position_num = {
+    5: "Пятое число Фибоначчи",
+    200: "Двухсотое число Фибоначчи",
+    1_000: "Тысячное число Фибоначчи",
+    100_000: "Стотысячное число Фибоначчи"
+}
 
-
-print(numbers[5 - 1])
-print(numbers[200 - 1])
-print(numbers[1000 - 1])
-print(numbers[100000 - 1])
+for counter, find_value in enumerate(get_fibonacci(), start=2):
+    if counter in position_num:
+        print(f'{position_num[counter]}: {find_value}')
+    if counter == 100000:
+        break
