@@ -1,7 +1,4 @@
 import math
-
-
-
 data = [17, 33]
 average = sum(data) / len(data)
 print('Среднее арифмитическое чисел 17 и 33 =', average)
