@@ -13,4 +13,3 @@ new_hot_days = list(hot_days)
 print(f'Max temperature: {max(new_hot_days)}')
 print(f'Min temperature: {min(new_hot_days)}')
 print(f'Average temperature: {round(sum(new_hot_days) / len(new_hot_days))}')
-
