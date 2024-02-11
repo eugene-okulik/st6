@@ -2,7 +2,7 @@ import datetime
 
 data = "Jan 15, 2023 - 12:05:33"
 
-python_date = datetime.datetime.strptime(data, '%b %d, %Y - %X') 
+python_date = datetime.datetime.strptime(data, '%b %d, %Y - %X')
 print("Распечатайте полное название месяца из этой даты:")
 print(python_date.strftime('Month: %B'))
 
