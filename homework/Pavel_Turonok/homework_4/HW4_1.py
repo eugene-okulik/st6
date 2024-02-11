@@ -1,7 +1,7 @@
 my_dict = {'tuple': (1, 3, True, None, False, 43, 22), 'list': [
-  17, 22, False, 33, 'bimbambam', True, 15], 'dict': {
-  'one': '1', 'two': 2, 'three': 3, 'four': 4.2, 'five': None, 'six': True, 'seven': [1, 4]}, 'set': {
-  3, 5, 15, 25, 32, 66}}
+      17, 22, False, 33, 'bimbambam', True, 15], 'dict': {
+      'one': '1', 'two': 2, 'three': 3, 'four': 4.2, 'five': None, 'six': True, 'seven': [1, 4]}, 'set': {
+      3, 5, 15, 25, 32, 66}}
 
 # Для того, что хранится под ключом ‘tuple’:
 # выведите на экран последний элемент
