@@ -1,12 +1,15 @@
 # Ряд Фибаначчи в генераторе
-def gen_fiba(num):
+def gen_fiba():
     a, b = 0, 1
-    for _ in range(num):
+    while True:
         yield a
         a, b = b, a + b
 
 
-print(list(gen_fiba(5))[-1])
-print(list(gen_fiba(200))[-1])
-print(list(gen_fiba(1000))[-1])
-print(list(gen_fiba(100000))[-1])
+i = 1
+for n in gen_fiba():
+    if i == 5 or i == 200 or i == 1000 or i == 100000:
+        print(n)
+    elif i > 100000:
+        break
+    i += 1
