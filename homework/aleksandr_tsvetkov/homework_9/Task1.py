@@ -9,7 +9,7 @@ def print_finished(func):
 
 @print_finished
 def func1(*args):
-    print(args)
+    print(*args)
 
 
 func1('Hello!')
