@@ -11,7 +11,7 @@ def calc_decorator(func):
         elif args[0] > args[1]:
             return print(args[0] - args[1])
 
-        elif args[1] > args[0]:
+        elif args[0] < args[1]:
             return print(args[0] / args[1])
 
         print(func(*args, **kwargs))
