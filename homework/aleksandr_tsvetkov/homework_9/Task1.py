@@ -2,8 +2,7 @@ def print_finished(func):
     def wrapper(*args, **kwargs):
         print('*-*-*-*-*')
         func(*args, **kwargs)
-        print('*-*-*-*-*')
-        print('Finished')
+        print('*-*-*-*-* \nFinished')
     return wrapper
 
 
