@@ -1,7 +1,7 @@
 def calc_decorator(func):
     def wrapper(*args, **kwargs):
 
-        if args[0] < 0 or args[1] < 0: 
+        if args[0] < 0 or args[1] < 0:
             return print(args[0] * args[1])
         # это условие должно быть входом, иначе оно всегда игнорируется
 
