@@ -23,6 +23,7 @@ num1 = int(input('\nEnter the first number: '))
 num2 = int(input('\nEnter the second number: '))
 oper = input('\nEnter operation type: ')
 
+
 @calc_decorator
 def calc(number1, number2, operation):
     if operation == '+':
