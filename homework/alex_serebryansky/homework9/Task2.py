@@ -1,3 +1,6 @@
+import functools
+
+
 def repeat_me(func):
     def wrapper(*args, count: int, **kwargs):
         if count <= 0:
@@ -6,14 +9,26 @@ def repeat_me(func):
             func(*args, **kwargs)
         else:
             [func(*args, **kwargs) for _ in range(count)]
-        print('finished')
 
     return wrapper
 
 
-@repeat_me
+def repeat(count=1):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            [func(*args, **kwargs) for _ in range(count)]
+
+        return wrapper
+
+    return decorator
+
+
+# @repeat_me
+@repeat(count=5)
 def example(text):
     print(text)
 
 
-example('print me', count=10)
+# example('print me', count=2)
+example('print me')
