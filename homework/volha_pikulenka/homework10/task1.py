@@ -10,7 +10,7 @@ class Book:
     ISBN = ''
 
     def reservation(self):
-        if self.is_reserved ==True:
+        if self.is_reserved is True:
             print('зарезервирована')
         return ''
 
@@ -18,7 +18,7 @@ class Book:
         print(
             (f'Название: {self.name}, Автор: {self.author}, ')
             + (f'страниц: {self.number_of_pages}, материал: {material}')
-            )
+        )
         print(self.reservation())
 
 
@@ -33,7 +33,7 @@ class Books_school(Book):
         print(
             (f'Предмет: {self.subject}, Автор: {self.author}, ')
             + (f'страниц: {self.number_of_pages}, класс: {self.school_class}')
-            )
+        )
         print(self.reservation())
 
 
@@ -47,8 +47,7 @@ book3 = Book(name='Звезды и полосы', author='Гаррисон', num
 book3.is_reserved = True
 book3.book_print()
 
-school_book1 = Books_school(subject='Алгебра', number_of_pages=115, 
-                            author='Иванов', school_class='8Б')
+school_book1 = Books_school(subject='Алгебра', number_of_pages=115, author='Иванов', school_class='8Б')
 school_book1.school_book_print()
 
 school_book2 = Books_school('География', 89, 'Круглов', '7А')
