@@ -5,17 +5,14 @@ class Book:
         self.number_of_pages = number_of_pages
         self.is_reserved = is_reserved
 
-
     book_material = 'бумага'
     has_text = True
     ISBN = ''
-
 
     def reservation(self):
         if self.is_reserved != False:
             print('зарезервирована')
         return ''
-
 
     def book_print(self, material=book_material):
         print((f'Название: {self.name}, Автор: {self.author}, страниц: {self.number_of_pages}, материал: {material}'))
@@ -32,8 +29,8 @@ class Books_school(Book):
     def school_book_print(self):
         print(f'Предмет: {self.subject}, Автор: {self.author}, страниц: {self.number_of_pages}, класс: {self.school_class}')
         print(self.reservation())
-    
-    
+
+
 book1 = Book('Идиот', 'Достоевский', 500)
 book1.book_print()
 
