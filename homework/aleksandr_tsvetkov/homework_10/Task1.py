@@ -11,7 +11,7 @@ class Book:
 
     def reserve(self):
         reserved_status = ': *** RESERVED! ***' if self.reserved is True else ''
-        print(f'Title: {self.book_title}, Author: {self.author}, ' +
+        print(f'Title: {self.book_title}, Author: {self.author}, '
               f'Pages: {self.pages_count}, Material: {self.page_material}{reserved_status}')
 
 
@@ -24,7 +24,7 @@ class SchoolBooks(Book):
 
     def reserve(self):
         reserved_status = ': *** RESERVED! ***' if self.reserved is True else ''
-        print(f'Title: {self.book_title}, author: {self.author}, pages: {self.pages_count}, ' +
+        print(f'Title: {self.book_title}, author: {self.author}, pages: {self.pages_count}, '
               f'subject: {self.subject}, school_class: {self.school_class}{reserved_status}')
 
 
