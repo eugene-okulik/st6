@@ -10,20 +10,21 @@ def choose_me(func):
             op = '/'
         elif a < 0 or b < 0:
             op = '*'
-        return func(a, b, op)  
+        return func(a, b, op)
     return operation
 
 
 @choose_me
 def calc(first, second, operation):
-  if operation == '+':
-    return first + second
-  elif operation == '-':
-    return first - second
-  elif operation == '/':
-    return first / second
-  elif operation == '*':
-    return first * second
+    if operation == '+':
+        return first + second
+    elif operation == '-':
+        return first - second
+    elif operation == '/':
+        return first / second
+    elif operation == '*':
+        return first * second
+
 
 first, second = int(input()), int(input())
 result = calc(first, second, None)
