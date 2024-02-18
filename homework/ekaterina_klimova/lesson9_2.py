@@ -3,7 +3,7 @@ def repeat_me(count):
 
         def inner(*agrs):
             for i in range(count):
-            func(*agrs)
+                func(*agrs)
         return inner
     return dec
 
