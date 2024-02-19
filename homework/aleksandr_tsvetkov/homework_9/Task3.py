@@ -1,11 +1,11 @@
 a = float(input('Введите первое число: '))
 b = float(input('Введите второе число: '))
-c = input('Какая операция будет происходить: ')
+# c = input('Какая операция будет происходить: ')
 
 
 def dec_calc(func):
     def wrapper(*args):
-        first, second, operation = args
+        first, second = args
         if first < 0 or second < 0:
             return func(first, second, '*')
         elif first > second:
@@ -29,4 +29,4 @@ def calc(first, second, operation):
         return first * second
 
 
-print(calc(a, b, c))
+print(calc(a, b))
