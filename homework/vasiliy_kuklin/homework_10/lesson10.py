@@ -35,14 +35,15 @@ print(dostoevsky_idiot.details_book())
 dostoevsky_idiot_not_reserved = Book('Идиот', 'Достоевсикй', 500, 123, False)
 print(dostoevsky_idiot_not_reserved.details_book())
 
-pushkin_skazki= Book('Сказки', 'Пушкин', 600, 124, True)
+pushkin_skazki = Book('Сказки', 'Пушкин', 600, 124, True)
 print(pushkin_skazki.details_book())
 
-esenin_stihi= Book('Стихи', 'Есенин', 300, 125, True)
+esenin_stihi = Book('Стихи', 'Есенин', 300, 125, True)
 print(esenin_stihi.details_book())
 
-fantastic= Book('Фантастика', 'Народные', 3900, 126, False)
+fantastic = Book('Фантастика', 'Народные', 3900, 126, False)
 print(fantastic.details_book())
+
 
 # Второй класс
 class School_Book(Book):
