@@ -10,7 +10,7 @@ class Book:
 
 
 def print_info(b):
-    if book.isBooked:
+    if b.isBooked:
         res_status = "зарезервирована"
     else:
         res_status = ""

@@ -10,11 +10,13 @@ class Book:
 
 
 def print_info(b):
-    if book.isBooked:
+    if b.isBooked:
         res_status = "зарезервирована"
     else:
         res_status = ""
-    print(f'Название: {b.title}, Автор: {b.author}, Количество страниц: {b.pages}, Материал: {b.mat}, {res_status}')
+    print(f'Название: {b.title}, Автор: {b.author}, '
+      f'Количество страниц: {b.pages}, '
+      f'Материал: {b.mat}, {res_status}')
 
 
 book1 = Book("Идиот", "Ф.М.Достоевский", 500, isBooked=True)
@@ -47,7 +49,10 @@ def print_info(sB):
         res_status = "зарезервирована"
     else:
         res_status = ""
-    print(f'Название: {sB.title}, Автор: {sB.author}, Количество страниц: {sB.pages}, Материал: {sB.mat}, Предмет: {sB.subject}, Класс: {sB.grade}, {res_status}')
+    print(f'Название: {sB.title}, Автор: {sB.author}, '
+      f'Количество страниц: {sB.pages}, '
+      f'Материал: {sB.mat}, {res_status}')
+
 
 print_info(book6)
 print_info(book7)
