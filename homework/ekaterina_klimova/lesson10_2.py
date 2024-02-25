@@ -15,8 +15,8 @@ def print_info(b):
     else:
         res_status = ""
     print(f'Название: {b.title}, Автор: {b.author}, '
-      f'Количество страниц: {b.pages}, '
-      f'Материал: {b.mat}, {res_status}')
+          f'Количество страниц: {b.pages}, '
+          f'Материал: {b.mat}, {res_status}')
 
 
 book1 = Book("Идиот", "Ф.М.Достоевский", 500, isBooked=True)
@@ -33,7 +33,8 @@ print_info(book5)
 
 
 class SchoolBook(Book):
-    def __init__(self, subject, grade, title, author, pages, ISBN="isbn", mat="бумага", isText="Да", isBooked=False, task=True):
+    def __init__(self, subject, grade, title, author, pages, ISBN="isbn", mat="бумага",
+                 isText="Да", isBooked=False, task=True):
         super().__init__(title, author, pages, ISBN, mat, isText, isBooked)
         self.subject = subject
         self.grade = grade
@@ -50,8 +51,8 @@ def print_info(sB):
     else:
         res_status = ""
     print(f'Название: {sB.title}, Автор: {sB.author}, '
-      f'Количество страниц: {sB.pages}, '
-      f'Материал: {sB.mat}, {res_status}')
+          f'Количество страниц: {sB.pages}, '
+          f'Материал: {sB.mat}, {res_status}')
 
 
 print_info(book6)
