@@ -14,8 +14,7 @@ def print_info(book):
         reserved_status = "зарезервирована"
     else:
         reserved_status = ""
-    print(f'Название: {book.title}, Автор: {book.author}, Количество страниц: {book.numberOfPages}, Материал: {book.matherial},
-          {reserved_status}')
+    print(f'Название: {book.title}, Автор: {book.author}, Количество страниц: {book.numberOfPages}, Материал: {book.matherial}, {reserved_status}')
 
 
 book1 = Book("Идиот", "Ф.М.Достоевский", 500, isBooked = True)
@@ -49,8 +48,7 @@ def print_info(schoolBook):
         reserved_status = "зарезервирована"
     else:
         reserved_status = ""
-    print(f'Название: {schoolBook.title}, Автор: {schoolBook.author}, Количество страниц: {schoolBook.numberOfPages},
-          Материал: {schoolBook.matherial}, Предмет: {schoolBook.subject}, Класс: {schoolBook.grade}, {reserved_status}')
+    print(f'Название: {schoolBook.title}, Автор: {schoolBook.author}, Количество страниц: {schoolBook.numberOfPages}, Материал: {schoolBook.matherial}, Предмет: {schoolBook.subject}, Класс: {schoolBook.grade}, {reserved_status}')
 
 print_info(book6)
 print_info(book7)

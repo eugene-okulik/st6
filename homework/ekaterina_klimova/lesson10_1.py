@@ -14,8 +14,7 @@ def print_info(book):
         reserved_status = "зарезервирована"
     else:
         reserved_status = ""
-    print(f'Название: {book.title}, Автор: {book.author}, Количество страниц: {book.numberOfPages}, Материал: {book.matherial},
-           {reserved_status}')
+    print(f'Название: {book.title}, Автор: {book.author}, Количество страниц: {book.numberOfPages}, Материал: {book.matherial}, {reserved_status}')
 
 
 book1 = Book("Идиот", "Ф.М.Достоевский", 500, isBooked = True)
