@@ -1,20 +1,20 @@
 class Book:
-    def __init__(self, title, author, numberOfPages, ISBN = "isbn", matherial = "бумага", isText = "Да", isBooked = False):
-        self.matherial = matherial
+    def __init__(self, title, author, pages, ISBN = "isbn", mat = "бумага", isText = "Да", isBooked = False):
+        self.mat = mat
         self.isText = isText
         self.title = title
         self.author = author
-        self.numberOfPages = numberOfPages
+        self.pages = pages
         self.ISBN = ISBN
         self.isBooked = isBooked
 
 
 def print_info(book):
     if book.isBooked:
-        reserved_status = "зарезервирована"
+        res_status = "зарезервирована"
     else:
-        reserved_status = ""
-    print(f'Название: {book.title}, Автор: {book.author}, Количество страниц: {book.numberOfPages}, Материал: {book.matherial}, {reserved_status}')
+        res_status = ""
+    print(f'Название: {book.title}, Автор: {book.author}, Количество страниц: {book.pages}, Материал: {book.mat}, {res_status}')
 
 
 book1 = Book("Идиот", "Ф.М.Достоевский", 500, isBooked = True)
@@ -31,9 +31,8 @@ print_info(book5)
 
 
 class SchoolBook(Book):
-    def __init__(self, subject, grade, title, author, numberOfPages, ISBN="isbn", material="бумага", isText="Да", isBooked=False,
-                  task = True):
-        super().__init__(title, author, numberOfPages, ISBN, material, isText, isBooked)
+    def __init__(self, subject, grade, title, author, pages, ISBN="isbn", mat="бумага", isText="Да", isBooked=False, task = True):
+        super().__init__(title, author, pages, ISBN, mat, isText, isBooked)
         self.subject = subject
         self.grade = grade
         self.task = task
@@ -43,12 +42,12 @@ book6 = SchoolBook("Алгебра", 9, "Математика", "Иванов", 
 book7 = SchoolBook("География", 9, "География", "Сидоров", 300)
 
 
-def print_info(schoolBook):
-    if schoolBook.isBooked:
-        reserved_status = "зарезервирована"
+def print_info(schB):
+    if schB.isBooked:
+        res_status = "зарезервирована"
     else:
-        reserved_status = ""
-    print(f'Название: {schoolBook.title}, Автор: {schoolBook.author}, Количество страниц: {schoolBook.numberOfPages}, Материал: {schoolBook.matherial}, Предмет: {schoolBook.subject}, Класс: {schoolBook.grade}, {reserved_status}')
+        res_status = ""
+    print(f'Название: {schB.title}, Автор: {schB.author}, Количество страниц: {schB.pages}, Материал: {schB.mat}, Предмет: {schB.subject}, Класс: {schB.grade}, {res_status}')
 
 print_info(book6)
 print_info(book7)

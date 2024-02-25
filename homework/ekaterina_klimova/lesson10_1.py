@@ -1,20 +1,20 @@
 class Book:
-    def __init__(self, title, author, numberOfPages, ISBN = "isbn", matherial = "бумага", isText = "Да", isBooked = False):
-        self.matherial = matherial
+    def __init__(self, title, author, pages, ISBN = "isbn", mat = "бумага", isText = "Да", isBooked = False):
+        self.mat = mat
         self.isText = isText
         self.title = title
         self.author = author
-        self.numberOfPages = numberOfPages
+        self.pages = pages
         self.ISBN = ISBN
         self.isBooked = isBooked
 
 
 def print_info(book):
     if book.isBooked:
-        reserved_status = "зарезервирована"
+        res_status = "зарезервирована"
     else:
-        reserved_status = ""
-    print(f'Название: {book.title}, Автор: {book.author}, Количество страниц: {book.numberOfPages}, Материал: {book.matherial}, {reserved_status}')
+        res_status = ""
+    print(f'Название: {book.title}, Автор: {book.author}, Количество страниц: {book.pages}, Материал: {book.mat}, {res_status}')
 
 
 book1 = Book("Идиот", "Ф.М.Достоевский", 500, isBooked = True)
