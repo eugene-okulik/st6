@@ -9,8 +9,8 @@ class Flowers:
         return (self.name, self.price, self.color, self.avr_lifetime_in_days)
 
     def flower_desc(self):
-        print(f'Name: {self.name.title()}, Price: {self.price}, Color: {self.color}, '
-               f'Lifetime: {self.avr_lifetime_in_days}')
+        print(f'Name: {self.name.title()}, Price: {self.price}, Color: {self.color},'
+              f' Lifetime: {self.avr_lifetime_in_days}')
 
 
 red_rose = Flowers('rose', 20, 'red', 10)
