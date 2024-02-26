@@ -24,36 +24,33 @@ class Bouquet:
         print(f'Average lifetime is {str(total_lifetime//len(self.avr_lifetime_in_days))} days')
 
     def sort_by_name(self, acs_desc='acs'):
-        if acs_desc == 'acs':
-            print('Sorted by name ASC', sep='\n')
-            return print(sorted(self.bouquet_info, key=lambda x: x[0]))
-        elif acs_desc == 'desc':
+        if acs_desc == 'desc':
             print('Sorted by name DESC', sep='\n')
             return print(sorted(self.bouquet_info, key=lambda x: x[0], reverse=True))
+        print('Sorted by name ASC', sep='\n')
+        return print(sorted(self.bouquet_info, key=lambda x: x[0]))
 
     def sort_by_price(self, acs_desc='acs'):
-        if acs_desc == 'acs':
-            print('Sorted by price ASC', sep='\n')
-            return print(sorted(self.bouquet_info, key=lambda x: x[1]))
-        elif acs_desc == 'desc':
+        if acs_desc == 'desc':
             print('Sorted by price DESC', sep='\n')
             return print(sorted(self.bouquet_info, key=lambda x: x[1], reverse=True))
+        print('Sorted by price ASC', sep='\n')
+        return print(sorted(self.bouquet_info, key=lambda x: x[1]))
+        
 
     def sort_by_color(self, acs_desc='acs'):
-        if acs_desc == 'acs':
-            print('Sorted by color ASC', sep='\n')
-            return print(sorted(self.bouquet_info, key=lambda x: x[2]))
-        elif acs_desc == 'desc':
+        if acs_desc == 'desc':
             print('Sorted by color DESC', sep='\n')
             return print(sorted(self.bouquet_info, key=lambda x: x[2], reverse=True))
+        print('Sorted by color ASC', sep='\n')
+        return print(sorted(self.bouquet_info, key=lambda x: x[2]))
 
     def sort_by_freshness(self, acs_desc='acs'):
-        if acs_desc == 'acs':
-            print('Sorted by freshness ASC', sep='\n')
-            return print(sorted(self.bouquet_info, key=lambda x: x[3]))
-        elif acs_desc == 'desc':
+        if acs_desc == 'desc':
             print('Sorted by freshness DESC', sep='\n')
             return print(sorted(self.bouquet_info, key=lambda x: x[3], reverse=True))
+        print('Sorted by freshness ASC', sep='\n')
+        return print(sorted(self.bouquet_info, key=lambda x: x[3]))
 
     def search_name_based_on_lifetime(self, lifetime_days):
         for lifetime in self.avr_lifetime_in_days:
@@ -70,10 +67,11 @@ bouquet1 = Bouquet(['rose', 'daisy', 'springs'], [50, 44, 68],
 bouquet2 = Bouquet(['dundelion', 'daffodils', 'astras'], [30, 11, 8],
                    ['yellow-bright', 'white', 'purple'], [8, 13, 5])
 
-print(bouquet1.bouquet_info)
+# print(bouquet1.bouquet_info)
 # bouquet1.bouquet_price()
 # bouquet1.bouquet_avr_lifetime_in_days()
 # bouquet1.sort_by_name()
-# bouquet1.sort_by_color()
-# bouquet1.sort_by_freshness('desc')
+# bouquet1.sort_by_price()
+# bouquet1.sort_by_color('desc')
+bouquet1.sort_by_freshness()
 # bouquet1.search_name_based_on_lifetime(12)
