@@ -1,16 +1,16 @@
 class Bouquet:
-    def __init__(self, flower_names:str, flower_prices:int,
-                flower_colors: str, avr_lifetime_in_days:int):
+    def __init__(self, flower_names : str, flower_prices : int,
+                flower_colors: str, avr_lifetime_in_days: int):
         self.flower_names = flower_names
         self.flower_prices = flower_prices
         self.flower_colors = flower_colors
         self.avr_lifetime_in_days = avr_lifetime_in_days
         self.bouquet_info = self.zipping()
-   
+
     def zipping(self):
         return (list(zip(self.flower_names, self.flower_prices,
                         self.flower_colors,self.avr_lifetime_in_days)))
-    
+
     def bouquet_price(self):
         total_price = 0
         for price in self.flower_prices:
@@ -30,7 +30,7 @@ class Bouquet:
         elif acs_desc == 'desc':
             print('Sorted by name DESC', sep='\n')
             return print(sorted(self.bouquet_info, key=lambda x: x[0],reverse=True))
-    
+
     def sort_by_price(self, acs_desc='acs'):
         if acs_desc == 'acs':
             print('Sorted by price ASC', sep='\n')
@@ -45,22 +45,22 @@ class Bouquet:
             return print(sorted(self.bouquet_info, key=lambda x: x[2]))
         elif acs_desc == 'desc':
             print('Sorted by color DESC', sep='\n')
-            return print(sorted(self.bouquet_info, key=lambda x: x[2],reverse=True))
-        
+            return print(sorted(self.bouquet_info, key=lambda x: x[2], reverse=True))
+
     def sort_by_freshness(self, acs_desc='acs'):
         if acs_desc == 'acs':
             print('Sorted by freshness ASC', sep='\n')
             return print(sorted(self.bouquet_info, key=lambda x: x[3]))
         elif acs_desc == 'desc':
             print('Sorted by freshness DESC', sep='\n')
-            return print(sorted(self.bouquet_info, key=lambda x: x[3],reverse=True))
-   
+            return print(sorted(self.bouquet_info, key=lambda x: x[3], reverse=True))
+
     def search_name_based_on_lifetime(self, lifetime_days):
-            for lifetime in self.avr_lifetime_in_days:
-                if lifetime == lifetime_days:
-                    i = self.avr_lifetime_in_days.index(lifetime)
-                    return print(f'{self.flower_names[i].title()} '
-                                f'has lifetime {lifetime_days} days')
+        for lifetime in self.avr_lifetime_in_days:
+            if lifetime == lifetime_days:
+                i = self.avr_lifetime_in_days.index(lifetime)
+                return print(f'{self.flower_names[i].title()} '
+                            + f'has lifetime {lifetime_days} days')
             return print('Nothing was found')
 
 

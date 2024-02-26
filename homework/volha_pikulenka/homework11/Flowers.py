@@ -1,5 +1,5 @@
 class Flowers:
-    def __init__(self, name:str, price:int, color:str, avr_lifetime_in_days:int):
+    def __init__(self, name: str, price: int, color: str, avr_lifetime_in_days: int):
         self.name = name
         self.price = price
         self.color = color
@@ -20,14 +20,15 @@ daffodils = Flowers('daffodils', 30, 'bright-yellow', 15)
 
 
 class Houseplants(Flowers):
-    def __init__(self, name: str, price: int, color: str, avr_lifetime_in_days: int, is_houseplant = True):
+    def __init__(self, name: str, price: int, color: str, avr_lifetime_in_days: int,
+                is_houseplant=True):
         super().__init__(name, price, color, avr_lifetime_in_days)
         self.is_houseplant = is_houseplant
 
     def flower_desc(self):
         print(f'Name: {self.name.title()}, Price: {self.price}, '
-            f'Color: {self.color}, Lifetime: {self.avr_lifetime_in_days},'
-            f'Hoseplant: {self.is_houseplant}')
+            + f'Color: {self.color}, Lifetime: {self.avr_lifetime_in_days},'
+            + f'Hoseplant: {self.is_houseplant}')
 
 
 viola = Houseplants('viola', 44, 'violet', 365, True)
