@@ -37,7 +37,6 @@ class Bouquet:
         print('Sorted by price ASC', sep='\n')
         return print(sorted(self.bouquet_info, key=lambda x: x[1]))
 
-
     def sort_by_color(self, acs_desc='acs'):
         if acs_desc == 'desc':
             print('Sorted by color DESC', sep='\n')
