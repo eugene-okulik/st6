@@ -1,6 +1,6 @@
 class Bouquet:
-    def __init__(self, flower_names : str, flower_prices : int,
-                flower_colors: str, avr_lifetime_in_days: int):
+    def __init__(self, flower_names: str, flower_prices: int,
+                 flower_colors: str, avr_lifetime_in_days: int):
         self.flower_names = flower_names
         self.flower_prices = flower_prices
         self.flower_colors = flower_colors
@@ -9,7 +9,7 @@ class Bouquet:
 
     def zipping(self):
         return (list(zip(self.flower_names, self.flower_prices,
-                        self.flower_colors,self.avr_lifetime_in_days)))
+                         self.flower_colors, self.avr_lifetime_in_days)))
 
     def bouquet_price(self):
         total_price = 0
@@ -29,7 +29,7 @@ class Bouquet:
             return print(sorted(self.bouquet_info, key=lambda x: x[0]))
         elif acs_desc == 'desc':
             print('Sorted by name DESC', sep='\n')
-            return print(sorted(self.bouquet_info, key=lambda x: x[0],reverse=True))
+            return print(sorted(self.bouquet_info, key=lambda x: x[0], reverse=True))
 
     def sort_by_price(self, acs_desc='acs'):
         if acs_desc == 'acs':
@@ -37,7 +37,7 @@ class Bouquet:
             return print(sorted(self.bouquet_info, key=lambda x: x[1]))
         elif acs_desc == 'desc':
             print('Sorted by price DESC', sep='\n')
-            return print(sorted(self.bouquet_info, key=lambda x: x[1],reverse=True))
+            return print(sorted(self.bouquet_info, key=lambda x: x[1], reverse=True))
 
     def sort_by_color(self, acs_desc='acs'):
         if acs_desc == 'acs':
@@ -60,7 +60,7 @@ class Bouquet:
             if lifetime == lifetime_days:
                 i = self.avr_lifetime_in_days.index(lifetime)
                 return print(f'{self.flower_names[i].title()} '
-                            + f'has lifetime {lifetime_days} days')
+                             f'has lifetime {lifetime_days} days')
             return print('Nothing was found')
 
 

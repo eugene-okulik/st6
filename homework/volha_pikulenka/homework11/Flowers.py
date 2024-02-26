@@ -9,8 +9,8 @@ class Flowers:
         return (self.name, self.price, self.color, self.avr_lifetime_in_days)
 
     def flower_desc(self):
-        print((f'Name: {self.name.title()}, Price: {self.price}, Color: {self.color}, ')
-            + (f'Lifetime: {self.avr_lifetime_in_days}'))
+        print(f'Name: {self.name.title()}, Price: {self.price}, Color: {self.color}, '
+               f'Lifetime: {self.avr_lifetime_in_days}')
 
 
 red_rose = Flowers('rose', 20, 'red', 10)
@@ -26,9 +26,9 @@ class Houseplants(Flowers):
         self.is_houseplant = is_houseplant
 
     def flower_desc(self):
-        print((f'Name: {self.name.title()}, Price: {self.price}, ')
-            + (f'Color: {self.color}, Lifetime: {self.avr_lifetime_in_days}, ')
-            + (f'Hoseplant: {self.is_houseplant}'))
+        print(f'Name: {self.name.title()}, Price: {self.price}, '
+              f'Color: {self.color}, Lifetime: {self.avr_lifetime_in_days}, '
+              f'Hoseplant: {self.is_houseplant}')
 
 
 viola = Houseplants('viola', 44, 'violet', 365, True)
