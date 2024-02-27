@@ -15,7 +15,7 @@ class Bouquet:
         total_price = 0
         for price in self.flower_prices:
             total_price = total_price + price
-        print(f'Bouquet price: {str(total_price // len(self.flower_prices))}')
+        print(f'Bouquet price: {total_price}')
 
     def bouquet_avr_lifetime_in_days(self):
         total_lifetime = 0
@@ -67,7 +67,7 @@ bouquet2 = Bouquet(['dundelion', 'daffodils', 'astras'], [30, 11, 8],
                    ['yellow-bright', 'white', 'purple'], [8, 13, 5])
 
 # print(bouquet1.bouquet_info)
-# bouquet1.bouquet_price()
+bouquet1.bouquet_price()
 # bouquet1.bouquet_avr_lifetime_in_days()
 # bouquet1.sort_by_name()
 # bouquet1.sort_by_price()
