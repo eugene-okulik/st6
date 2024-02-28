@@ -17,6 +17,21 @@ class Flowers:
                 f'Lifetime: {self.avr_lifetime_in_days} days\n')
 
 
+class Houseplants(Flowers):
+    def __init__(self, name: str, price: int, color: str, avr_lifetime_in_days: int,
+                 is_houseplant=True):
+        super().__init__(name, price, color, avr_lifetime_in_days)
+        self.is_houseplant = is_houseplant
+
+    def __repr__(self):
+        return (f'Flower: {self.name}, Price: {self.price}, Color: {self.color}, '
+                f'Lifetime: {self.avr_lifetime_in_days} days\n'
+                f'Hoseplant: {self.is_houseplant}')
+
+
+viola = Houseplants('viola', 44, 'violet', 365, True)
+petunia = Houseplants('petunia', 33, 'pink', 44, False)
+
 red_rose = Flowers('rose', 20, 'red', 10)
 white_rose = Flowers('rose2', 30, 'white', 11)
 daisies = Flowers('daisies', 40, 'white-yellow', 8)
@@ -67,6 +82,10 @@ bouq11 = Bouquet()
 bouq11.add_flower(daisies)
 bouq11.add_flower(daffodils)
 
+bouq2 = Bouquet()
+bouq2.add_flower(viola)
+bouq2.add_flower(red_rose)
+
 # bouq11.print_bouquet_flowers()
 # bouq11.bouquet_avr_lifetime_in_days()
 # bouq11.sort_name()
@@ -74,3 +93,5 @@ bouq11.add_flower(daffodils)
 # bouq11.sort_color()
 # bouq11.sort_lifetime()
 # bouq11.search_flowername_based_by_lifetime(15)
+
+bouq2.sort_name()
