@@ -56,14 +56,11 @@ class Bouquet:
         print(f'Sorted by lifetime '
               f'{sorted(self.bouquet, key=lambda lifetime: lifetime.avr_lifetime_in_days)}')
 
-
     def search_flowername_based_by_lifetime(self, lifetime):
         for flower in self.bouquet:
             if flower.avr_lifetime_in_days == lifetime:
                 return print(f'{flower.name} has lifetime {lifetime} days')
         return print('Nothing was found')
-
-
 
 bouq11 = Bouquet()
 bouq11.add_flower(daisies)
