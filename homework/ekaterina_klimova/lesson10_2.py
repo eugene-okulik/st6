@@ -1,6 +1,7 @@
 class Book:
     mat = "бумага"
-    isText = True,
+    isText = True
+
     def __init__(self, title, author, pages, ISBN="isbn", isBooked=False):
         self.title = title
         self.author = author
