@@ -13,5 +13,5 @@ try:
         for word in data:
             if word.istitle():
                 print(word[0],)
-except(FileNotFoundError) as err:
+except (FileNotFoundError) as err:
     print(err)

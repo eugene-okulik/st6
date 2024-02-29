@@ -7,5 +7,5 @@ while True:
         py_date = datetime.datetime.strptime(init_date, '%d.%m.%Y')
         print('Thanks, meatbag')
         break
-    except(ValueError):
-        print(f'Wrong format, try again.')
+    except (ValueError):
+        print('Wrong format, try again.')
