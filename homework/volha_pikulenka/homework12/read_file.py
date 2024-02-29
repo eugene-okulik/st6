@@ -10,8 +10,8 @@ try:
     with open(path_to_file, 'r', encoding='utf-8') as opened_file:
         data = opened_file.read()
         print(data)
-        for word in data:
-            if word.istitle():
-                print(word[0],)
+        for letter in data:
+            if letter.istitle():
+                print(letter)
 except (FileNotFoundError) as err:
     print(err)
