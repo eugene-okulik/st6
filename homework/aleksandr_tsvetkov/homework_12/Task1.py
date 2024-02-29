@@ -3,11 +3,11 @@ import datetime
 
 def date_conversion():
     try:
-        user_date = input('Введите дату в формате (гггг/мм/дд): ')
-        python_date = datetime.datetime.strptime(user_date, '%Y/%m/%d')
+        user_date = input('Введите дату: ')
+        python_date = datetime.datetime.strptime(user_date, '%d.%m.%Y')
         return python_date
     except ValueError:
-        return 'Неверный формат даты. Правильный формат даты: (гггг/мм/дд), например 2024/09/29'
+        return 'Неверный формат даты. Правильный формат даты: (дд/мм/гггг), например 29.09.2024'
 
 
 print(date_conversion())
