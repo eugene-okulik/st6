@@ -49,18 +49,14 @@ class Bouquet:
             freshness += (flower.life_time - flower.cut_days)
         return freshness / len(self.bouquet)
 
-
     def sort_flowers_by_freshness(self):
         self.bouquet.sort(key=lambda x: x.cut_days)
-
 
     def sort_flowers_by_price(self):
         self.bouquet.sort(key=lambda x: x.price)
 
-
     def sort_flowers_by_life_time(self):
         self.bouquet.sort(key=lambda x: x.life_time)
-
 
     def search_by_life_time(self, target_freshness):
         found_flowers = []
