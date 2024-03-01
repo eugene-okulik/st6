@@ -21,25 +21,29 @@ class Tulip(Flowers):
     def __init__(self, color, long, life_time, cut_days, price):
         super().__init__("Тюльпан", color, long, life_time, cut_days, price)
 
+
 class Bouquet:
     def __init__(self):
         self.bouquet = []
 
+
     def add_flower(self, flower):
-        self.bouquet.append(flower)  
+        self.bouquet.append(flower)
+
 
     def calculate_bouquet_cost(self):
-        total_cost = 0       
+        total_cost = 0
         for flower in self.bouquet:
             rest_life = (flower.life_time - flower.cut_days) / flower.life_time
             if flower.long == "long":
                 k = 1.5
             elif flower.long == "middle":
-                k = 1    
+                k = 1
             elif flower.long == "short":
                 k = 0.5
             total_cost += flower.price * rest_life * k
-        return total_cost
+        return round(total_cost, 2)
+
 
     # определяет время его увядания по среднему времени жизни всех цветов в букете.
     def wilted_the_bouquet(self):
@@ -48,14 +52,18 @@ class Bouquet:
             freshness += (flower.life_time - flower.cut_days)
         return freshness / len(self.bouquet)
 
+
     def sort_flowers_by_freshness(self):
         self.bouquet.sort(key=lambda x: x.cut_days)
+
 
     def sort_flowers_by_price(self):
         self.bouquet.sort(key=lambda x: x.price)
 
+
     def sort_flowers_by_life_time(self):
         self.bouquet.sort(key=lambda x: x.life_time)
+
 
     def search_by_life_time(self, target_freshness):
         found_flowers = []
@@ -63,7 +71,6 @@ class Bouquet:
             if flower.life_time == target_freshness:
                 found_flowers.append(flower)
         return found_flowers
-
 
 
 red_rose = Rose("красный", "short", 10, 3, 7)
