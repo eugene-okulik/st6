@@ -14,7 +14,7 @@ class Rose(Flowers):
 
 class Camomile(Flowers):
     def __init__(self, color, long, life_time, cut_days, price):
-        super().__init__("Ромашка", color, long, life_time, cut_days,price)
+        super().__init__("Ромашка", color, long, life_time, cut_days, price)
 
 
 class Tulip(Flowers):
@@ -26,10 +26,8 @@ class Bouquet:
     def __init__(self):
         self.bouquet = []
 
-
     def add_flower(self, flower):
         self.bouquet.append(flower)
-
 
     def calculate_bouquet_cost(self):
         total_cost = 0
@@ -43,7 +41,6 @@ class Bouquet:
                 k = 0.5
             total_cost += flower.price * rest_life * k
         return round(total_cost, 2)
-
 
     # определяет время его увядания по среднему времени жизни всех цветов в букете.
     def wilted_the_bouquet(self):
@@ -84,11 +81,11 @@ bouquet.add_flower(white_camomile)
 bouquet.add_flower(pink_rose)
 bouquet.add_flower(black_tulip)
 
-#Информация о букете
+# Информация о букете
 print(f'Средняя свежесть букета: {bouquet.wilted_the_bouquet()}')
 print(f'Стоимость букета: {bouquet.calculate_bouquet_cost()}')
 
-#сортировки по свежести/цене/времени жизни
+# сортировки по свежести/цене/времени жизни
 bouquet.sort_flowers_by_freshness()
 print("Цветы в букете отсортированы по свежести:")
 for f in bouquet.bouquet:
@@ -104,7 +101,7 @@ print("Цветы в букете отсортированы по времени
 for f in bouquet.bouquet:
     print(f.name, f.life_time)
 
-#Поиск цветка по времени жизни
+# Поиск цветка по времени жизни
 l_time = int(input("Введите необходимое время жизни цветка: "))
 found_flowers = bouquet.search_by_life_time(l_time)
 print(f'цветы со свежестью {l_time}:')
