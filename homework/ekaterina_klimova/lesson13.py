@@ -24,7 +24,7 @@ print(new_date.strftime('%Y-%m-%d %H:%M:%S.%f'))
 
 # распечатать какой это будет день недели
 day_of_week_name = date_from_file[1].strftime('%A')
-print("День недели:", day_of_week_name)       
+print("День недели:", day_of_week_name)
 
 # распечатать сколько дней назад была эта дата
 now = datetime.now()
