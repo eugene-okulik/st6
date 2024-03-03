@@ -16,7 +16,7 @@ for line in data.split('\n'):
     if number == '1':
         print(f'Дата на неделю позже: {date + datetime.timedelta(weeks=1)}')
     elif number == '2':
-        print(f'День недели будет: {date.strftime('%A')}')
+        print(f'День недели будет: {date.strftime("%A")}')
     elif number == '3':
         days_ago = datetime.datetime.now() - date
         print(f'{days_ago.days} дней назад была эта неделя')
