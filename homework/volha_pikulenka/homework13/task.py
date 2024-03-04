@@ -3,7 +3,7 @@ import datetime
 
 
 def updated_date_format(date):
-    return(datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S.%f'))
+    return datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S.%f')
 
 
 def print_date_week_later(date):
