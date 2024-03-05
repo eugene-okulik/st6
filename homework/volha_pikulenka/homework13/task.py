@@ -12,21 +12,7 @@ def print_date_week_later(date):
 
 
 def print_week_day(date):
-    match date.weekday():
-        case 0:
-            print('Monday')
-        case 1:
-            print('Tuesday')
-        case 2:
-            print('Wednsday')
-        case 3:
-            print('THursday')
-        case 4:
-            print('Friday')
-        case 5:
-            print('Saturday')
-        case 6:
-            print('Sunday')
+    print(date.strftime('%A'))
 
 
 def print_how_many_days_ago(date):
