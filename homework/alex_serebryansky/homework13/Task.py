@@ -15,19 +15,21 @@ def parse_date(data_file: str) -> list:
     return dates
 
 
+my_dates = parse_date(data)
+
+
 def get_date_after_week(date: str) -> str:
     return str(datetime.strptime(date, "%Y-%m-%d %H:%M:%S.%f") + timedelta(days=7))
 
 
 def get_day_of_week(date: str) -> str:
-    days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    return days_of_week[datetime.strptime(date, "%Y-%m-%d %H:%M:%S.%f").weekday()]
+    return (datetime.strptime(date, "%Y-%m-%d %H:%M:%S.%f")).strftime("%A")
 
 
 def get_days_ago(date: str) -> int:
     return (datetime.now() - datetime.strptime(date, "%Y-%m-%d %H:%M:%S.%f")).days
 
 
-print(get_date_after_week(parse_date(data)[0]))
-print(get_day_of_week(parse_date(data)[1]))
-print(get_days_ago(parse_date(data)[2]))
+print(get_date_after_week(my_dates[0]))
+print(get_day_of_week(my_dates[1]))
+print(get_days_ago(my_dates[2]))
