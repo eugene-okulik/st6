@@ -1,0 +1,45 @@
+INSERT INTO students (name, second_name) VALUES ('Leos', 'Smith');
+SELECT * FROM students;
+INSERT INTO `groups` (title) value ('Reading');
+INSERT INTO books (title, taken_by_student_id) values('Sound and fury', 73);
+INSERT INTO books (title, taken_by_student_id) values('Blessing of the Celestials', 73);
+INSERT INTO subjets  (title) value ('Зарубежная литература');
+INSERT INTO subjets  (title) value ('Искусство');
+INSERT INTO lessons (title, subject_id) value ('Моя любимая книга', 6);
+INSERT INTO lessons (title, subject_id) value ('Образ человека', 7);
+INSERT INTO lessons (title, subject_id) value ('Лекция с элементами беседы', 6);
+INSERT INTO lessons (title, subject_id) value ('Виды искуства', 7);
+INSERT INTO marks (value, lesson_id, student_id) value (5, 11, 73);
+INSERT INTO marks (value, lesson_id, student_id) value (4, 12, 73);
+INSERT INTO marks (value, lesson_id, student_id) value (4, 13, 73);
+INSERT INTO marks (value, lesson_id, student_id) value (3, 15, 73);
+
+
+SELECT students.name, students.second_name, marks.value
+FROM marks
+JOIN students on marks.student_id = students.id
+WHERE students.name = 'Leos';
+
+
+SELECT students.name, students.second_name, books.title
+FROM books
+JOIN students on books.taken_by_student_id = students.id
+WHERE students.name = 'Leos';
+
+
+SELECT
+	students.name,
+	students.second_name,
+	groups.title AS group_title,
+	# books.title AS book_title,
+	subjets.title AS subjets_title,
+	lessons.title AS lessons_title,
+	marks.value as mark
+	#(SELECT GROUP_CONCAT(books.title) FROM books WHERE books.taken_by_student_id=students.id) AS all_taken_books
+FROM students
+JOIN `groups` on students.group_id = `groups`.id
+# JOIN books on books.taken_by_student_id = students.id
+JOIN marks on marks.student_id  = students.id
+JOIN lessons on lessons.id = marks.lesson_id
+JOIN subjets on subjets.id = lessons.subject_id
+WHERE students.name = 'Leos';
