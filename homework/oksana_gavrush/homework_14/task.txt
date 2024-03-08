@@ -1,6 +1,6 @@
-INSERT INTO students (name, second_name) VALUES ('Leos', 'Smith');
 SELECT * FROM students;
-INSERT INTO `groups` (title) value ('Reading');
+INSERT INTO students (name, second_name) VALUES ('Leos', 'Smith');
+INSERT INTO `groups` (id, title) value (6, 'Reading');
 INSERT INTO books (title, taken_by_student_id) values('Sound and fury', 73);
 INSERT INTO books (title, taken_by_student_id) values('Blessing of the Celestials', 73);
 INSERT INTO subjets  (title) value ('Зарубежная литература');
@@ -13,6 +13,7 @@ INSERT INTO marks (value, lesson_id, student_id) value (5, 11, 73);
 INSERT INTO marks (value, lesson_id, student_id) value (4, 12, 73);
 INSERT INTO marks (value, lesson_id, student_id) value (4, 13, 73);
 INSERT INTO marks (value, lesson_id, student_id) value (3, 15, 73);
+UPDATE students SET group_id=6 WHERE name='Leos' AND second_name ='Smith';
 
 
 SELECT students.name, students.second_name, marks.value
@@ -43,3 +44,4 @@ JOIN marks on marks.student_id  = students.id
 JOIN lessons on lessons.id = marks.lesson_id
 JOIN subjets on subjets.id = lessons.subject_id
 WHERE students.name = 'Leos';
+
