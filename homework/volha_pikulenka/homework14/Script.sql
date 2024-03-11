@@ -38,3 +38,16 @@ INSERT INTO st6.marks (id, value, lesson_id, student_id) VALUES(7, '5', 7, 69);
 INSERT INTO st6.marks (id, value, lesson_id, student_id) VALUES(8, '5', 8, 69);
 INSERT INTO st6.marks (id, value, lesson_id, student_id) VALUES(9, '3', 9, 69);
 INSERT INTO st6.marks (id, value, lesson_id, student_id) VALUES(10, '4', 10, 69);
+
+
+SELECT s.name, s.second_name , m.value from students s join marks m on s.id = m.student_id WHERE s.id=69
+
+SELECT s.name, s.second_name , b.title as book_title  from students s join books b on s.id = b.taken_by_student_id  WHERE s.id=69
+
+SELECT * from students s 
+join marks m on s.id = m.student_id
+join books b on s.id = b.taken_by_student_id
+join `groups` g on s.group_id  = g.id
+join lessons l on m.lesson_id =l.id 
+join subjets s2  on l.subject_id =s2.id 
+WHERE s.id=69
