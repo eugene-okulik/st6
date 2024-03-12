@@ -43,7 +43,7 @@ SELECT s.name, s.second_name , m.value from students s join marks m on s.id = m.
 
 SELECT s.name, s.second_name , b.title as book_title  from students s join books b on s.id = b.taken_by_student_id  WHERE s.id=69
 
-SELECT distinct * from students s 
+SELECT * from students s 
 join marks m on s.id = m.student_id
 join `groups` g on s.group_id  = g.id
 join lessons l on m.lesson_id =l.id 
