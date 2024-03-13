@@ -37,7 +37,6 @@ with mysql.connect(
         if user:
             print('you are logged in')
 
-
     def correct_formatting():
         login = input('login')
         passw = input('passw')
@@ -64,11 +63,11 @@ with mysql.connect(
     print(book1, book_ids)
 
 query = '''
-SELECT s.name, g.title as group_title, b.title as book_title  
+SELECT s.name, g.title as group_title, b.title as book_title
 FROM students s
 RIGHT JOIN `groups` g
-on s.group_id = g.id 
+on s.group_id = g.id
 join books b
-on s.id = b.taken_by_student_id 
+on s.id = b.taken_by_student_id
 WHERE s.name = 'Aex'
 '''
