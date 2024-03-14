@@ -92,8 +92,7 @@ with mysql.connect(
         "JOIN marks m ON s.id = m.student_id "
         "JOIN lessons l ON l.id = m.lesson_id "
         "JOIN subjets s2 ON s2.id = l.subject_id "
-        "WHERE s.id = 89"
-        )
+        "WHERE s.id = 89")
     data = cursor.fetchall()
     for i in data:
         print(i['name'], i['second_name'], i['Title_group'], i['Title_book'], i['value'], i['Title_lesson'],
