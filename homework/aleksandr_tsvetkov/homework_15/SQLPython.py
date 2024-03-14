@@ -73,7 +73,7 @@ with mysql.connect(
     mark_id = cursor.lastrowid
     db.commit()
 
-# Все оценки студента
+# Все оценки студента.
     cursor.execute(
         "SELECT name, second_name, value, title from students "
         "JOIN marks ON students.id = marks.student_id "
