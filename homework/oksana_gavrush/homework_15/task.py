@@ -18,7 +18,6 @@ with mysql.connect(
         cursor.executemany(insert_query, [('Felix Salten Bambi', 80), ('Discovery', 80)])
         db.commit()
 
-
     def append_groups():
         cursor.execute("INSERT INTO `groups` (title) VALUES ('Greenpeace')")
         db.commit()
@@ -31,7 +30,6 @@ with mysql.connect(
         insert_query_item = "INSERT INTO subjets (title) VALUES (%s)"
         cursor.executemany(insert_query_item, [('Ecology',), ('Natural Sciences',)])
         db.commit()
-
 
     def append_lessons():
         insert_query_lesson = "INSERT INTO lessons (title, subject_id) VALUES (%s, %s)"
@@ -72,7 +70,7 @@ with mysql.connect(
     print(f"Student books: {school_books}")
 
     cursor.execute("SELECT students.name, students.second_name, groups.title  AS group_title, "
-                   "lessons.title AS lesson, subjets.title AS subjets, marks.value AS grade " 
+                   "lessons.title AS lesson, subjets.title AS subjets, marks.value AS grade "
                    "FROM students "
                    "JOIN `groups` on students.group_id = `groups`.id "
                    "JOIN marks on marks.student_id = students.id "
