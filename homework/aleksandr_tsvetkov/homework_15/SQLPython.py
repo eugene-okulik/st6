@@ -73,6 +73,7 @@ with mysql.connect(
     mark_id = cursor.lastrowid
     db.commit()
 
+# Все оценки студента
     cursor.execute(
         "SELECT name, second_name, value, title from students "
         "JOIN marks ON students.id = marks.student_id "
@@ -83,6 +84,7 @@ with mysql.connect(
     for student in data:
         print(student['name'], student['value'], student['title'])
 
+# Все книги, которые находятся у студента
     cursor.execute("SELECT name, second_name, title FROM students "
                    "JOIN books ON students.id = books.taken_by_student_id "
                    "WHERE students.id = %s", (student_id,)
@@ -92,6 +94,7 @@ with mysql.connect(
     for books in data:
         print(books['name'], ':', books['title'])
 
+# Все о студенте
     cursor.execute(
         "SELECT name, second_name, g.title as Title_group, b.title as Title_book, "
         "value, l.title as Title_lesson, s2.title as Title_subjets "
