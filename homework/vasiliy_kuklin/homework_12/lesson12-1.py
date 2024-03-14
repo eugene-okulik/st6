@@ -12,5 +12,3 @@ with open(path_to_file, 'r', encoding='utf-8') as open_file:
 for i in my_data:
     if i.istitle():
         print(i)
-
-
