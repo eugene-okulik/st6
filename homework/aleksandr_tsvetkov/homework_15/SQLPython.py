@@ -10,7 +10,7 @@ with mysql.connect(
     cursor = db.cursor(dictionary=True)
 
     # Заполнение таблицы 'students'
-    cursor.execute("INSERT INTO students (name, second_name) VALUES ('John', 'Wick')")
+    cursor.execute("INSERT INTO students (name, second_name) VALUES ('Patrick', 'Star')")
     student_id = cursor.lastrowid
     db.commit()
     print(student_id)
