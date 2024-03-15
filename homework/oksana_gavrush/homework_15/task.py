@@ -9,50 +9,57 @@ with mysql.connect(
 ) as db:
     cursor = db.cursor(dictionary=True)
 
-    def insert_into():
-        cursor.execute("INSERT INTO students (name, second_name) VALUES ('Lion', 'King')")
-        db.commit()
+    cursor.execute("INSERT INTO students (name, second_name) VALUES ('Franko', 'Pollo')")
+    student_id = cursor.lastrowid
+    db.commit()
 
-    def append_books():
-        insert_query = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)"
-        cursor.executemany(insert_query, [('Felix Salten Bambi', 80), ('Discovery', 80)])
-        db.commit()
+    insert_query = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)"
+    cursor.executemany(insert_query, [('Event studies', student_id), ('Tourism and Gastronomy', student_id)])
+    db.commit()
 
-    def append_groups():
-        cursor.execute("INSERT INTO `groups` (title) VALUES ('Greenpeace')")
-        db.commit()
+    cursor.execute("INSERT INTO `groups` (title) VALUES ('Tourism')")
+    grouping_id = cursor.lastrowid
+    db.commit()
 
-    def group_for_students():
-        cursor.execute("UPDATE students SET group_id=12 WHERE name='Lion' AND second_name ='King'")
-        db.commit()
+    cursor.execute("UPDATE students SET group_id = %s WHERE name = 'Franko' AND second_name = 'Pollo'",
+                   (grouping_id,))
+    db.commit()
 
-    def append_item():
-        insert_query_item = "INSERT INTO subjets (title) VALUES (%s)"
-        cursor.executemany(insert_query_item, [('Ecology',), ('Natural Sciences',)])
-        db.commit()
+    insert_query_item = "INSERT INTO subjets (title) VALUES (%s)"
+    subjects = [('Religious tourism',), ('Foreign tourism',)]
+    subjects_id = []
+    for subject in subjects:
+        cursor.execute(insert_query_item, subject)
+        subjects_id.append(cursor.lastrowid)
+    db.commit()
 
-    def append_lessons():
-        insert_query_lesson = "INSERT INTO lessons (title, subject_id) VALUES (%s, %s)"
-        cursor.executemany(insert_query_lesson, [
-            ('Methods for studying nature', 16),
-            ('Populations', 16),
-            ('Ecology concepts', 17),
-            ('Studying biology', 17)])
-        db.commit()
+    insert_query_lesson = "INSERT INTO lessons (title, subject_id) VALUES (%s, %s)"
+    lessons_data = [
+        ('Marketing in tourism', subjects_id[0]),
+        ('Tourism: regulatory legal acts', subjects_id[0]),
+        ('Tourism and Gastronomy', subjects_id[1]),
+        ('Cultural Tourism', subjects_id[1])
+    ]
+    inserted_lesson_ids = []
 
-    def append_marks():
-        insert_query_marks = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
-        cursor.executemany(insert_query_marks, [
-            (5, 32, 80),
-            (4, 33, 80),
-            (5, 34, 80),
-            (5, 35, 80)])
+    for lesson in lessons_data:
+        cursor.execute(insert_query_lesson, lesson)
+        inserted_lesson_ids.append(cursor.lastrowid)
+    db.commit()
+
+    insert_query_marks = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
+    cursor.executemany(insert_query_marks, [
+            (5, inserted_lesson_ids[0], student_id),
+            (4, inserted_lesson_ids[1], student_id),
+            (5, inserted_lesson_ids[2], student_id),
+            (5, inserted_lesson_ids[3], student_id)])
     db.commit()
 
     cursor.execute("SELECT students.name, students.second_name, "
                    "marks.value FROM marks "
                    "JOIN students ON marks.student_id = students.id "
-                   "WHERE students.name = 'Lion'")
+                   "WHERE students.name = 'Franko'")
+
     data = cursor.fetchall()
     school_grades = []
     for grades in data:
@@ -62,7 +69,8 @@ with mysql.connect(
     cursor.execute("SELECT books.title "
                    "FROM books "
                    "JOIN students ON books.taken_by_student_id = students.id "
-                   "WHERE students.name = 'Lion'")
+                   "WHERE students.name = 'Franko'")
+
     find_book = cursor.fetchall()
     school_books = []
     for book in find_book:
@@ -76,7 +84,7 @@ with mysql.connect(
                    "JOIN marks on marks.student_id = students.id "
                    "JOIN lessons on lessons.id = marks.lesson_id "
                    "JOIN subjets on subjets.id = lessons.subject_id "
-                   "WHERE students.name = 'Lion'")
+                   "WHERE students.name = 'Franko'")
     all_information = cursor.fetchall()
     for info in all_information:
         print(info)
