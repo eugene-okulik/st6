@@ -7,6 +7,7 @@ def prettify(func):
         print('********')
     return wrapper
 
+
 db_connect = mysql.connector.connect(
     username='st6',
     password='AVNS_XGjY2YlfLXOaYWT4ZJU',
@@ -33,7 +34,6 @@ with db_connect as db:
         mycursor.execute(select_req, (id,))
         student = mycursor.fetchone()
         db.commit()
-       
         print(f'Successfully dded {student}')
 
     @prettify
@@ -55,7 +55,6 @@ with db_connect as db:
         mycursor.execute(select_req, (id,))
         subj = mycursor.fetchone()
         db.commit()
-        
         print(f'Added subject is: {subj}')
 
     @prettify
@@ -71,7 +70,7 @@ with db_connect as db:
     @prettify
     def insert_students_marks(value, lesson_id, student_id):
         insert_req = """
-        INSERT INTO st6.marks (value, lesson_id, student_id) 
+        INSERT INTO st6.marks (value, lesson_id, student_id)
         VALUES(%s,%s,%s)
         """
         mycursor.execute(insert_req, (value, lesson_id, student_id))
@@ -91,10 +90,10 @@ with db_connect as db:
     @prettify
     def select_students_marks(student_id):
         select_req = """
-        SELECT m.value, l.title 
-        from students s 
-        join marks m on s.id = m.student_id 
-        join lessons l on m.lesson_id = l.id 
+        SELECT m.value, l.title
+        from students s
+        join marks m on s.id = m.student_id
+        join lessons l on m.lesson_id = l.id
         WHERE s.id=%s
         """
         mycursor.execute(select_req, (student_id,))
@@ -103,9 +102,9 @@ with db_connect as db:
     @prettify
     def select_students_books(student_id):
         select_req = """
-        SELECT s.name, s.second_name , b.title as book_title  
-        FROM students s 
-        join books b on s.id = b.taken_by_student_id  
+        SELECT s.name, s.second_name , b.title as book_title
+        FROM students s
+        join books b on s.id = b.taken_by_student_id
         WHERE s.id=%s
         """
         mycursor.execute(select_req, (student_id,))
@@ -114,11 +113,11 @@ with db_connect as db:
     @prettify
     def select_student_all_info(student_id):
         select_req = """
-        SELECT * from students s 
+        SELECT * from students s
         join marks m on s.id = m.student_id
         join `groups` g on s.group_id  = g.id
-        join lessons l on m.lesson_id =l.id 
-        join subjets s2  on l.subject_id =s2.id 
+        join lessons l on m.lesson_id =l.id
+        join subjets s2  on l.subject_id =s2.id
         join books b on s.id = b.taken_by_student_id
         WHERE s.id=%s
         """
@@ -138,7 +137,7 @@ with db_connect as db:
         mycursor.execute(select_req, (id,))
         book = mycursor.fetchone()
         db.commit()
-       
+
         print(f"You added book '{book}'")
 
     # print_databases()
