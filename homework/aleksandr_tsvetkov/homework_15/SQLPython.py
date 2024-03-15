@@ -10,23 +10,25 @@ with mysql.connect(
     cursor = db.cursor(dictionary=True)
 
     # Заполнение таблицы 'students'
-    cursor.execute("INSERT INTO students (name, second_name) VALUES ('Patrick', 'Star')")
+    cursor.execute("INSERT INTO students (name, second_name) VALUES ('Jack', 'Jonson')")
     student_id = cursor.lastrowid
     db.commit()
     print(student_id)
 
     # Заполнение таблицы 'books'
-    cursor.execute("INSERT INTO books (title, taken_by_student_id) VALUES "
-                   "('Mathematics of Big Data', 89),"
-                   "('The Deep Learning Revolution', 89), "
-                   "('Designing an Internet', 89)")
-    book_id = cursor.lastrowid
-    db.commit()
-    print(book_id)
+    insert_query_books = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)"
+    books = [('Mathematics of Big Data', student_id),
+             ('The Deep Learning Revolution', student_id),
+             ('Designing an Internet', student_id)]
+    books_id = []
+    for book in books:
+        cursor.execute(insert_query_books, book)
+        books_id.append(cursor.lastrowid)
+        db.commit()
 
-    # # Заполнение таблицы 'groups'
+    # Заполнение таблицы 'groups'
     cursor.execute("INSERT INTO `groups` (title, start_date, end_date) VALUES "
-                   "('Bikini Bottom', 14/03/2024, 17/04/2025)")
+                   "('The Transporter', '17/03/2024', '18/04/2025')")
     group_id = cursor.lastrowid
     db.commit()
     print(group_id)
@@ -34,46 +36,43 @@ with mysql.connect(
     cursor.execute("UPDATE students SET group_id = %s WHERE id = %s", (group_id, student_id,))
     db.commit()
 
-    cursor.execute("UPDATE `groups` SET start_date = '14/03/2024', end_date = '17/04/2025' WHERE id = %s",
-                   (group_id,))
-    db.commit()
+    # Заполнение таблицы 'subjets'
+    insert_query_subjects = "INSERT INTO subjets (title) VALUES (%s)"
+    subjects = [('Делопроизводство',), ('Инвестиции',)]
+    subjects_id = []
+    for subject in subjects:
+        cursor.execute(insert_query_subjects, subject)
+        subjects_id.append(cursor.lastrowid)
+        db.commit()
+    print(subjects_id)
 
-    # # Заполнение таблицы 'subjets'
-    cursor.execute("INSERT INTO subjets (title) VALUES"
-                   "('Материаловедение'), "
-                   "('Радиоэлектроника'), "
-                   "('Схемотехника')")
-    subject_id = cursor.lastrowid
-    db.commit()
-    print(subject_id)
+    # Заполнение таблицы 'lessons'
+    insert_query_lessons = "INSERT INTO lessons (title, subject_id) VALUES (%s, %s)"
+    lessons = [('анализ инвестиционных проектов', subjects_id[0]),
+               ('Зависимость инвестиций', subjects_id[0]),
+               ('Оценка инвестиционного климата', subjects_id[1]),
+               ('Финансовое обеспечение инвестиционных проектов', subjects_id[1])]
+    lessons_id = []
+    for lesson in lessons:
+        cursor.execute(insert_query_lessons, lesson)
+        lessons_id.append(cursor.lastrowid)
+        db.commit()
+    print(lessons_id)
 
-    # # Заполнение таблицы 'lessons'
-    insert_query = "INSERT INTO lessons (title, subject_id) VALUES (%s, %s)"
-    cursor.executemany(insert_query, [
-        ('Виды диэдектриков', subject_id),
-        ('Электроматериаловедение', subject_id),
-        ('Радиоуправление летательными аппаратами', subject_id),
-        ('Полупроводниковые приборы и электронные лампы', subject_id),
-        ('Расчет радиаторов', subject_id),
-        ('Вычислительные системы и микропроцессорная техника', subject_id)
-    ])
-    lesson_id = cursor.lastrowid
-    db.commit()
-
-    # # Заполнение таблицы 'marks
+    # Заполнение таблицы 'marks
     insert_query_marks = "INSERT INTO marks (value, lesson_id, student_id) VALUE (%s, %s, %s)"
-    cursor.executemany(insert_query, [
-        ('8', lesson_id, student_id),
-        ('10', lesson_id, student_id),
-        ('6', lesson_id, student_id),
-        ('10', lesson_id, student_id),
-        ('5', lesson_id, student_id),
-        ('9', lesson_id, student_id)
-    ])
-    mark_id = cursor.lastrowid
-    db.commit()
+    marks = [(8, lessons_id[0], student_id),
+             (10, lessons_id[1], student_id),
+             (6, lessons_id[2], student_id),
+             (10, lessons_id[3], student_id)]
+    marks_id = []
+    for mark in marks:
+        cursor.executemany(insert_query_marks, (mark,))
+        marks_id.append(cursor.lastrowid)
+        db.commit()
+    print(marks_id)
 
-# Все оценки студента.
+    # Все оценки студента.
     cursor.execute(
         "SELECT name, second_name, value, title from students "
         "JOIN marks ON students.id = marks.student_id "
@@ -84,29 +83,11 @@ with mysql.connect(
     for student in data:
         print(student['name'], student['value'], student['title'])
 
-# Все книги, которые находятся у студента
+    # Все книги, которые находятся у студента
     cursor.execute("SELECT name, second_name, title FROM students "
                    "JOIN books ON students.id = books.taken_by_student_id "
-                   "WHERE students.id = %s", (student_id,)
-                   )
+                   "WHERE students.id = %s", (student_id,))
     data = cursor.fetchall()
     print(data)
     for books in data:
         print(books['name'], ':', books['title'])
-
-# Все о студенте
-    cursor.execute(
-        "SELECT name, second_name, g.title as Title_group, b.title as Title_book, "
-        "value, l.title as Title_lesson, s2.title as Title_subjets "
-        "FROM students s "
-        "JOIN `groups` g ON s.group_id = g.id "
-        "JOIN books b ON s.id = b.taken_by_student_id "
-        "JOIN marks m ON s.id = m.student_id "
-        "JOIN lessons l ON l.id = m.lesson_id "
-        "JOIN subjets s2 ON s2.id = l.subject_id "
-        "WHERE s.id = %s", (student_id,)
-    )
-    data = cursor.fetchall()
-    for i in data:
-        print(i['name'], i['second_name'], i['Title_group'], i['Title_book'], i['value'], i['Title_lesson'],
-              i['Title_subjets'], sep=': ')
