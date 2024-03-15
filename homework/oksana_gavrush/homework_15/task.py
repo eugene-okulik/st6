@@ -40,19 +40,19 @@ with mysql.connect(
         ('Tourism and Gastronomy', subjects_id[1]),
         ('Cultural Tourism', subjects_id[1])
     ]
-    inserted_lesson_ids = []
 
+    insert_lesson_ids = []
     for lesson in lessons_data:
         cursor.execute(insert_query_lesson, lesson)
-        inserted_lesson_ids.append(cursor.lastrowid)
+        insert_lesson_ids.append(cursor.lastrowid)
     db.commit()
 
     insert_query_marks = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
     cursor.executemany(insert_query_marks, [
-            (5, inserted_lesson_ids[0], student_id),
-            (4, inserted_lesson_ids[1], student_id),
-            (5, inserted_lesson_ids[2], student_id),
-            (5, inserted_lesson_ids[3], student_id)])
+            (5, insert_lesson_ids[0], student_id),
+            (4, insert_lesson_ids[1], student_id),
+            (5, insert_lesson_ids[2], student_id),
+            (5, insert_lesson_ids[3], student_id)])
     db.commit()
 
     cursor.execute("SELECT students.name, students.second_name, "
