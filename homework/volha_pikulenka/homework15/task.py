@@ -1,5 +1,6 @@
 import mysql.connector
 
+
 def prettify(func):
     def wrapper(*args, **kwargs):
         print('********')
@@ -76,12 +77,12 @@ with db_connect as db:
         mycursor.execute(insert_req, (value, lesson_id, student_id))
         db.commit()
         select_req = """
-        SELECT s.name, s.second_name , m.value, l.title 
-        from students s 
-        join marks 
-        m on s.id = m.student_id 
-        join lessons l 
-        on m.lesson_id = l.id 
+        SELECT s.name, s.second_name , m.value, l.title
+        from students s
+        join marks
+        m on s.id = m.student_id
+        join lessons l
+        on m.lesson_id = l.id
         WHERE s.id=%s
         """
         mycursor.execute(select_req, (student_id,))
@@ -137,7 +138,6 @@ with db_connect as db:
         mycursor.execute(select_req, (id,))
         book = mycursor.fetchone()
         db.commit()
-
         print(f"You added book '{book}'")
 
     # print_databases()
