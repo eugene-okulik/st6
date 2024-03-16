@@ -11,8 +11,8 @@ with mysql.connect(
     student_name = 'Lion'
     student_second_name = 'King'
     cursor.execute("INSERT INTO students (name, second_name) VALUES (%s, %s)",
-                   (student_name, student_second_name)
-    )
+                   (student_name, student_second_name))
+
     student_id = cursor.lastrowid
     db.commit()
 
