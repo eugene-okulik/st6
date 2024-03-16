@@ -8,8 +8,11 @@ with mysql.connect(
     database='st6'
 ) as db:
     cursor = db.cursor(dictionary=True)
-
-    cursor.execute("INSERT INTO students (name, second_name) VALUES ('Franko', 'Pollo')")
+    student_name = 'Lion'
+    student_second_name = 'King'
+    cursor.execute("INSERT INTO students (name, second_name) VALUES (%s, %s)",
+                   (student_name, student_second_name)
+    )
     student_id = cursor.lastrowid
     db.commit()
 
@@ -17,12 +20,12 @@ with mysql.connect(
     cursor.executemany(insert_query, [('Event studies', student_id), ('Tourism and Gastronomy', student_id)])
     db.commit()
 
-    cursor.execute("INSERT INTO `groups` (title) VALUES ('Tourism')")
+    cursor.execute("INSERT INTO `groups` (title) VALUES ('Greenpeace')")
     grouping_id = cursor.lastrowid
     db.commit()
 
-    cursor.execute("UPDATE students SET group_id = %s WHERE name = 'Franko' AND second_name = 'Pollo'",
-                   (grouping_id,))
+    cursor.execute("UPDATE students SET group_id = %s WHERE name = %s AND second_name = %s",
+                   (grouping_id, student_name, student_second_name))
     db.commit()
 
     insert_query_item = "INSERT INTO subjets (title) VALUES (%s)"
@@ -59,7 +62,7 @@ with mysql.connect(
     cursor.execute("SELECT students.name, students.second_name, "
                    "marks.value FROM marks "
                    "JOIN students ON marks.student_id = students.id "
-                   "WHERE students.name = 'Franko'")
+                   "WHERE students.name = %s AND students.id = %s", (student_name, student_id))
 
     data = cursor.fetchall()
     school_grades = []
@@ -70,7 +73,7 @@ with mysql.connect(
     cursor.execute("SELECT books.title "
                    "FROM books "
                    "JOIN students ON books.taken_by_student_id = students.id "
-                   "WHERE students.name = 'Franko'")
+                   "WHERE students.name = %s AND students.id = %s", (student_name, student_id))
 
     find_book = cursor.fetchall()
     school_books = []
@@ -85,7 +88,7 @@ with mysql.connect(
                    "JOIN marks on marks.student_id = students.id "
                    "JOIN lessons on lessons.id = marks.lesson_id "
                    "JOIN subjets on subjets.id = lessons.subject_id "
-                   "WHERE students.name = 'Franko'")
+                   "WHERE students.name = %s AND students.id = %s", (student_name, student_id))
     all_information = cursor.fetchall()
     for info in all_information:
         print(info)
