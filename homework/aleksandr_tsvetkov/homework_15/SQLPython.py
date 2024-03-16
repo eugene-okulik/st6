@@ -61,16 +61,12 @@ with mysql.connect(
 
     # Заполнение таблицы 'marks
     insert_query_marks = "INSERT INTO marks (value, lesson_id, student_id) VALUE (%s, %s, %s)"
-    marks = [(8, lessons_id[0], student_id),
-             (10, lessons_id[1], student_id),
-             (6, lessons_id[2], student_id),
-             (10, lessons_id[3], student_id)]
-    marks_id = []
-    for mark in marks:
-        cursor.executemany(insert_query_marks, (mark,))
-        marks_id.append(cursor.lastrowid)
-        db.commit()
-    print(marks_id)
+    cursor.executemany(insert_query_marks, [
+        (8, lessons_id[0], student_id),
+        (10, lessons_id[1], student_id),
+        (6, lessons_id[2], student_id),
+        (10, lessons_id[3], student_id)])
+    db.commit()
 
     # Все оценки студента.
     cursor.execute(
@@ -91,3 +87,20 @@ with mysql.connect(
     print(data)
     for books in data:
         print(books['name'], ':', books['title'])
+
+    # Все о студенте
+    cursor.execute(
+        "SELECT name, second_name, g.title as Title_group, b.title as Title_book, "
+        "value, l.title as Title_lesson, s2.title as Title_subjets "
+        "FROM students s "
+        "JOIN `groups` g ON s.group_id = g.id "
+        "JOIN books b ON s.id = b.taken_by_student_id "
+        "JOIN marks m ON s.id = m.student_id "
+        "JOIN lessons l ON l.id = m.lesson_id "
+        "JOIN subjets s2 ON s2.id = l.subject_id "
+        "WHERE s.id = %s", (student_id,)
+    )
+    data = cursor.fetchall()
+    for i in data:
+        print(i['name'], i['second_name'], i['Title_group'], i['Title_book'], i['value'], i['Title_lesson'],
+              i['Title_subjets'], sep=': ')
