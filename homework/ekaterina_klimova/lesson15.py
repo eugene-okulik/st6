@@ -104,22 +104,22 @@ with mysql.connect(
         """SELECT value FROM marks WHERE student_id = %s;""",
         """SELECT title FROM books WHERE taken_by_student_id = %s;""",
         """
-        SELECT 
-            gr.title as group_name, 
-            s.name, 
-            s.second_name, 
+        SELECT
+            gr.title as group_name,
+            s.name,
+            s.second_name,
             b.title as book_title,
             sb.title as subject_name,
             l.title as lesson,
             m.value as mark
-        FROM 
+        FROM
             students s
             JOIN `groups` gr ON s.group_id = gr.id
             JOIN books b ON s.id =b.taken_by_student_id
             JOIN marks m ON m.student_id =s.id
             JOIN lessons l ON l.id  = m.lesson_id
             JOIN subjets sb ON sb.id = l.subject_id
-        WHERE 
+        WHERE
             s.id = %s;
         """
     ]
