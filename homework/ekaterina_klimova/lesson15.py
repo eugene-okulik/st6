@@ -10,13 +10,11 @@ with mysql.connect(
 ) as db:
     cursor = db.cursor()
 
-
     def create_new_group():
         cursor.execute("INSERT INTO `groups`(title) VALUES ('automation_db_python');")
         gr_id = cursor.lastrowid
         db.commit()
         return gr_id
-
 
     def create_new_student():
         cursor.execute("INSERT INTO students (name, second_name) VALUES ('Katerina', 'Klimova')")
@@ -24,18 +22,14 @@ with mysql.connect(
         db.commit()
         return st_id
 
-
     group_id = create_new_group()
     student_id = create_new_student()
-
 
     def student_in_group():
         cursor.execute("UPDATE students SET group_id = %s WHERE id = %s", (group_id, student_id))
         db.commit()
 
-
     student_in_group()
-
 
     def create_books():
         insert_books = "INSERT INTO books (title) VALUES (%s)"
@@ -47,9 +41,7 @@ with mysql.connect(
         db.commit()
         return book_id
 
-
     books_id = create_books()
-
 
     def book_books():
         bk = "UPDATE books SET taken_by_student_id = %s WHERE id = %s;"
@@ -57,9 +49,7 @@ with mysql.connect(
             cursor.execute(bk, (student_id, i))
         db.commit()
 
-
     book_books()
-
 
     def create_subject():
         sub = "INSERT INTO subjets (title) VALUES (%s);"
@@ -71,9 +61,7 @@ with mysql.connect(
         db.commit()
         return sub_id
 
-
     subjects_id = create_subject()
-
 
     def create_lessons():
         lessons_id = []
@@ -85,9 +73,7 @@ with mysql.connect(
         db.commit()
         return lessons_id
 
-
     less_id = create_lessons()
-
 
     def create_marks():
         values = [random.randint(0, 100) for _ in range(4)]
@@ -96,9 +82,7 @@ with mysql.connect(
             cursor.execute(query, (v, l_id, student_id))
         db.commit()
 
-
     create_marks()
-
 
     queries = [
         """SELECT value FROM marks WHERE student_id = %s;""",
