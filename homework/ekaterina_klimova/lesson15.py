@@ -10,50 +10,33 @@ with mysql.connect(
 ) as db:
     cursor = db.cursor()
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
     def create_new_group():
         cursor.execute("INSERT INTO `groups`(title) VALUES ('automation_db_python');")
         gr_id = cursor.lastrowid
         db.commit()
         return gr_id
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
     def create_new_student():
         cursor.execute("INSERT INTO students (name, second_name) VALUES ('Katerina', 'Klimova')")
         st_id = cursor.lastrowid
         db.commit()
         return st_id
 
-<<<<<<< HEAD
-    group_id = create_new_group()
-    student_id = create_new_student()
-
-=======
 
     group_id = create_new_group()
     student_id = create_new_student()
 
 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
     def student_in_group():
         cursor.execute("UPDATE students SET group_id = %s WHERE id = %s", (group_id, student_id))
         db.commit()
 
-<<<<<<< HEAD
-    student_in_group()
-
-=======
 
     student_in_group()
 
 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
     def create_books():
         insert_books = "INSERT INTO books (title) VALUES (%s)"
         book = ["exorcist", "Elsewhere"]
@@ -64,30 +47,20 @@ with mysql.connect(
         db.commit()
         return book_id
 
-<<<<<<< HEAD
-    books_id = create_books()
-
-=======
 
     books_id = create_books()
 
 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
     def book_books():
         bk = "UPDATE books SET taken_by_student_id = %s WHERE id = %s;"
         for i in books_id:
             cursor.execute(bk, (student_id, i))
         db.commit()
 
-<<<<<<< HEAD
-    book_books()
-
-=======
 
     book_books()
 
 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
     def create_subject():
         sub = "INSERT INTO subjets (title) VALUES (%s);"
         sub_vals = ["literature", "rhetoric"]
@@ -98,15 +71,10 @@ with mysql.connect(
         db.commit()
         return sub_id
 
-<<<<<<< HEAD
-    subjects_id = create_subject()
-
-=======
 
     subjects_id = create_subject()
 
 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
     def create_lessons():
         lessons_id = []
         lessons = ["1_theme_l1", "2_theme_l1", "1_theme_l2", "2_theme_l2"]
@@ -117,15 +85,10 @@ with mysql.connect(
         db.commit()
         return lessons_id
 
-<<<<<<< HEAD
-    less_id = create_lessons()
-
-=======
 
     less_id = create_lessons()
 
 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
     def create_marks():
         values = [random.randint(0, 100) for _ in range(4)]
         query = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s);"
@@ -133,50 +96,30 @@ with mysql.connect(
             cursor.execute(query, (v, l_id, student_id))
         db.commit()
 
-<<<<<<< HEAD
-    create_marks()
-
-=======
 
     create_marks()
 
 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
     queries = [
         """SELECT value FROM marks WHERE student_id = %s;""",
         """SELECT title FROM books WHERE taken_by_student_id = %s;""",
         """
-<<<<<<< HEAD
-        SELECT
-            gr.title as group_name,
-            s.name,
-            s.second_name,
-=======
         SELECT 
             gr.title as group_name, 
             s.name, 
             s.second_name, 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
             b.title as book_title,
             sb.title as subject_name,
             l.title as lesson,
             m.value as mark
-<<<<<<< HEAD
-        FROM
-=======
         FROM 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
             students s
             JOIN `groups` gr ON s.group_id = gr.id
             JOIN books b ON s.id =b.taken_by_student_id
             JOIN marks m ON m.student_id =s.id
             JOIN lessons l ON l.id  = m.lesson_id
             JOIN subjets sb ON sb.id = l.subject_id
-<<<<<<< HEAD
-        WHERE
-=======
         WHERE 
->>>>>>> 9233ae3 (ekaterina_klimova_hw15)
             s.id = %s;
         """
     ]
