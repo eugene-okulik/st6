@@ -24,8 +24,8 @@ with mysql.connect(
     grouping_id = cursor.lastrowid
     db.commit()
 
-    cursor.execute("UPDATE students SET group_id = %s WHERE name = %s AND second_name = %s",
-                   (grouping_id, student_name, student_second_name))
+    cursor.execute("UPDATE students SET group_id = %s WHERE id = %s",
+                   (grouping_id, student_id))
     db.commit()
 
     insert_query_item = "INSERT INTO subjets (title) VALUES (%s)"
