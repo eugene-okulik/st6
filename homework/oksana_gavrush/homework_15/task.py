@@ -1,11 +1,11 @@
 import mysql.connector as mysql
 
 with mysql.connect(
-    user='st6',
-    passwd='AVNS_XGjY2YlfLXOaYWT4ZJU',
-    host='db-mysql-fra1-09136-do-user-7651996-0.b.db.ondigitalocean.com',
-    port=25060,
-    database='st6'
+        user='st6',
+        passwd='AVNS_XGjY2YlfLXOaYWT4ZJU',
+        host='db-mysql-fra1-09136-do-user-7651996-0.b.db.ondigitalocean.com',
+        port=25060,
+        database='st6'
 ) as db:
     cursor = db.cursor(dictionary=True)
     student_name = 'Lion'
@@ -56,13 +56,13 @@ with mysql.connect(
         (4, insert_lesson_ids[1], student_id),
         (5, insert_lesson_ids[2], student_id),
         (5, insert_lesson_ids[3], student_id)]
-    )
+                       )
     db.commit()
 
     cursor.execute("SELECT students.name, students.second_name, "
                    "marks.value FROM marks "
                    "JOIN students ON marks.student_id = students.id "
-                   "WHERE students.name = %s AND students.id = %s", (student_name, student_id))
+                   "WHERE students.id = %s", (student_id,))
 
     data = cursor.fetchall()
     school_grades = []
@@ -73,7 +73,7 @@ with mysql.connect(
     cursor.execute("SELECT books.title "
                    "FROM books "
                    "JOIN students ON books.taken_by_student_id = students.id "
-                   "WHERE students.name = %s AND students.id = %s", (student_name, student_id))
+                   "WHERE students.id = %s", (student_id,))
 
     find_book = cursor.fetchall()
     school_books = []
@@ -88,7 +88,7 @@ with mysql.connect(
                    "JOIN marks on marks.student_id = students.id "
                    "JOIN lessons on lessons.id = marks.lesson_id "
                    "JOIN subjets on subjets.id = lessons.subject_id "
-                   "WHERE students.name = %s AND students.id = %s", (student_name, student_id))
+                   "WHERE students.id = %s", (student_id,))
     all_information = cursor.fetchall()
     for info in all_information:
         print(info)
