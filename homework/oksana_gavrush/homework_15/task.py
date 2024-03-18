@@ -55,8 +55,7 @@ with mysql.connect(
         (5, insert_lesson_ids[0], student_id),
         (4, insert_lesson_ids[1], student_id),
         (5, insert_lesson_ids[2], student_id),
-        (5, insert_lesson_ids[3], student_id)]
-                       )
+        (5, insert_lesson_ids[3], student_id)])
     db.commit()
 
     cursor.execute("SELECT students.name, students.second_name, "
