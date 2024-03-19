@@ -55,20 +55,20 @@ with mysql.connect(
     print(data)
 
     query = f'''
-    SELECT 
-    s.name as student, g.title as gruppa, b.title as kniga, m.value as ocenka, 
+    SELECT
+    s.name as student, g.title as gruppa, b.title as kniga, m.value as ocenka,
     l.title as zanyatie, sb.title as predmet
     FROM students  s
     LEFT JOIN `groups` g
     ON s.group_id = g.id
     JOIN books b
-    ON s.id = b.taken_by_student_id 
+    ON s.id = b.taken_by_student_id
     JOIN marks m
     ON s.id = m.student_id
-    JOIN lessons l 
-    ON l.id = m.lesson_id 
+    JOIN lessons l
+    ON l.id = m.lesson_id
     JOIN subjets sb
-    ON sb.id = l.subject_id 
+    ON sb.id = l.subject_id
     WHERE s.id = {student_id}
     '''
     cursor.execute(query)
