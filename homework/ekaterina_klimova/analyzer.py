@@ -45,6 +45,7 @@ def find_text(my_path, text):
         list1.extend(result)
     return list1
 
+
 my_path = args.path
 text = args.text
 res = find_text(my_path, text)
