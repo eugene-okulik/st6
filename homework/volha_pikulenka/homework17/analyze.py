@@ -32,11 +32,11 @@ try:
                     end = last_letter_index + 51
 
                     if start < 0:
-                        print('\n', line[:end])
+                        print(line[:end], '\n')
                     elif end > len(line):
-                        print('\n', line[start:])
+                        print(line[start:], '\n')
                     else:
-                        print('\n', line[start:end])
+                        print(line[start:end], '\n')
                 else:
                     pass
 except FileNotFoundError as err:
