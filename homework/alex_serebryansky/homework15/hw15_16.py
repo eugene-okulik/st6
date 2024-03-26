@@ -66,7 +66,7 @@ with mysql.connect(
                            (Mark.GOOD, lessons_ids[3], student_id)
                        ])
     db.commit()
-    student_id = 154
+
     cursor.execute("SELECT m.value, s.name, s.second_name "
                    "FROM marks m JOIN students s ON s.id = m.student_id "
                    "WHERE m.student_id = %s", (student_id,))
