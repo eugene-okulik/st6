@@ -30,10 +30,10 @@ def post_req():
 
 def put_req():
     payload = {
-            "title": "My title-UPD",
-            "Body": "My publication content-UPD",
-            "userId": 1
-        }
+        "title": "My title-UPD",
+        "Body": "My publication content-UPD",
+        "userId": 1
+    }
     headers = {
         'Content-type': 'application/json'
     }
