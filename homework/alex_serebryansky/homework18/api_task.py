@@ -63,4 +63,3 @@ get_object_by_id(object_id)
 change_object(object_id)
 change_objects_field(object_id)
 delete_object(object_id)
-
