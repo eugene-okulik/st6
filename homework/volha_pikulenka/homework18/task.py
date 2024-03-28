@@ -16,12 +16,12 @@ def create_obj():
 
 
 def get_obj_lists():
-    response = (requests.get(f"https://api.restful-api.dev/objects")).json()
+    response = (requests.get("https://api.restful-api.dev/objects")).json()
     print(response)
 
 
 def get_obj_by_id():
-    response = (requests.get(f"https://api.restful-api.dev/objects?id=ff8081818e21ce2d018e85cf6dbf732c"))
+    response = (requests.get("https://api.restful-api.dev/objects?id=ff8081818e21ce2d018e85cf6dbf732c"))
     print(response.json())
 
 
