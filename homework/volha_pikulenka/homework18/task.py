@@ -44,7 +44,7 @@ def change_obj_partially():
     body = {
         "name": "TEST ME UPD again",
     }
-    response = requests.put("https://api.restful-api.dev/objects/ff8081818e21ce2d018e85c961b17327", json=body)
+    response = requests.patch("https://api.restful-api.dev/objects/ff8081818e21ce2d018e85d98cc67336", json=body)
     print(response.json())
 
 
@@ -55,7 +55,7 @@ def delete_obj():
 
 # create_obj()
 # get_obj_lists()
-get_obj_by_id()
+# get_obj_by_id()
 # change_obj()
-# change_obj_partially()
+change_obj_partially()
 # delete_obj()
