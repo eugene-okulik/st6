@@ -21,6 +21,7 @@ new_line = {
 
 post_method(new_line)
 
+
 # Получение объекта по его id
 def get_info(id_object):
     responce = requests.get(f"https://api.restful-api.dev/objects?id={id_object}")
@@ -66,6 +67,7 @@ patch_payload = {
     }
 }
 patch_obj(id_obj, patch_payload)
+
 
 # Удаление объекта
 def delete_obj(id_object):
