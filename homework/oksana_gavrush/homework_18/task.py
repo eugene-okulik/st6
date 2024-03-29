@@ -48,20 +48,20 @@ obj_id = obj['id']
 print('result get_object_by_id: ', obj)
 
 payload = {
-   "name": "Apple MacBook Pro 17",
-   "data": {
-      "year": 2024,
-      "price": 1923,
-      "CPU model": "Intel Core i11",
-      "Hard disk size": "1.1 TB",
-   }
+    "name": "Apple MacBook Pro 17",
+    "data": {
+        "year": 2024,
+        "price": 1923,
+        "CPU model": "Intel Core i11",
+        "Hard disk size": "1.1 TB",
+    }
 }
 obj = put_object_by_id(obj_ids=obj_id, load=payload)
 obj_id = obj['id']
 print('result put_object_by_id: ', obj)
 
 payload = {
-   "name": "Apple MacBook Pro 18"}
+    "name": "Apple MacBook Pro 18"}
 obj = patch_object_by_id(obj_ids=obj_id, load=payload)
 obj_id = obj['id']
 print('result patch_object_by_id: ', obj)
