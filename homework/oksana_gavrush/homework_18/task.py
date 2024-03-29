@@ -12,17 +12,20 @@ def get_object_by_id(obj_ids):
 
 
 def put_object_by_id(obj_ids, load):
-    response = requests.put(f'https://api.restful-api.dev/objects/{obj_ids}', json=load)
+    response = requests.put(f'https://api.restful-api.dev/objects/'
+                            f'{obj_ids}', json=load)
     return response.json()
 
 
 def patch_object_by_id(obj_ids, load):
-    response = requests.patch(f'https://api.restful-api.dev/objects/{obj_ids}', json=load)
+    response = requests.patch(f'https://api.restful-api.dev/objects/'
+                              f'{obj_ids}', json=load)
     return response.json()
 
 
 def del_object_by_id(obj_ids):
-    response = requests.delete(f'https://api.restful-api.dev/objects/{obj_ids}')
+    response = requests.delete(f'https://api.restful-api.dev/objects/'
+                               f'{obj_ids}')
     return response.json()
 
 
