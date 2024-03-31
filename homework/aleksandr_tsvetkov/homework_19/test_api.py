@@ -39,13 +39,13 @@ def test_create_obj():
     response = requests.post('https://api.restful-api.dev/objects', json=payload)
     assert response.status_code == 200, 'Status code is not Ok'
     assert response.json()['name'] == payload['name'] and response.json()['data'] == payload['data'], \
-        'The values dont match'
+        'The values don\'t match'
 
 
 def test_get_obj_by_id(obj_id):
     response = requests.get(f'https://api.restful-api.dev/objects/{obj_id}')
     assert response.status_code == 200, 'Status code is not Ok'
-    assert response.json()['id'] == obj_id, 'Object ID dont match'
+    assert response.json()['id'] == obj_id, 'Object ID don\'t match'
 
 
 def test_put_obj(obj_id):
@@ -61,7 +61,7 @@ def test_put_obj(obj_id):
     response = requests.put(f'https://api.restful-api.dev/objects/{obj_id}', json=payload)
     assert response.status_code == 200, 'Status code is not Ok'
     assert response.json()['name'] == payload['name'] and response.json()['data'] == payload['data'], \
-        'The values dont match'
+        'The values don\'t match'
 
 
 def test_patch_obj(obj_id):
@@ -72,7 +72,7 @@ def test_patch_obj(obj_id):
     }
     response = requests.patch(f'https://api.restful-api.dev/objects/{obj_id}', json=payload)
     assert response.status_code == 200, 'Status code is not Ok'
-    assert response.json()['data'] == payload['data'], 'The values dont match'
+    assert response.json()['data'] == payload['data'], 'The values don\'t match'
 
 
 def test_delete_obj(obj_id):
