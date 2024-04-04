@@ -24,4 +24,3 @@ def start_end():
     print("\nStart testing")
     yield
     print("\nTesting completed")
-
