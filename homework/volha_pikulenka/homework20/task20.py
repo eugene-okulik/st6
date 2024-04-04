@@ -1,6 +1,6 @@
 import pytest
 import requests
-from pydantic import BaseModel,Field
+from pydantic import BaseModel, Field
 
 
 class PostData(BaseModel):
@@ -49,7 +49,7 @@ def test_get_obj_by_id(start_end, obj_id):
     assert response.json()[0]['id'] == obj_id, 'Invalid object id'
 
 
-@pytest.mark.parametrize('title',['TEST ME UPD', '', '#435&*()[]/'],
+@pytest.mark.parametrize('title', ['TEST ME UPD', '', '#435&*()[]/'],
                          ids=['string', 'empty string', 'spec_chars'])
 def test_change_obj(start_end, obj_id, title):
     body = {
@@ -79,6 +79,7 @@ def test_change_obj_partially(start_end, obj_id):
     assert response.status_code == 200, 'Status code is not 200'
     assert response.json()['id'] == obj_id, 'Invalid object id'
     assert response.json()['name'] == body['name']
+
 
 @pytest.mark.medium
 def test_delete_obj(start_end, obj_id):
