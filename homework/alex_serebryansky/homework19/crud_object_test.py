@@ -4,8 +4,7 @@ from hamcrest import assert_that, equal_to
 
 from homework.alex_serebryansky.homework18.ObjectRest import ObjectRest
 from homework.alex_serebryansky.homework19 import ObjectPage
-from homework.alex_serebryansky.homework19.KindOfObject import *
-from homework.alex_serebryansky.homework19.ObjectPage import ObjectData
+from homework.alex_serebryansky.homework19.TypeDataOfObject import *
 from homework.alex_serebryansky.homework19.ResponseMessage import ResponseMessages, ResponseCodes
 from homework.alex_serebryansky.homework19.object_features import *
 
@@ -15,7 +14,7 @@ from homework.alex_serebryansky.homework19.object_features import *
 @allure.feature(VALIDATION_OBJECTS_SCHEMAS_FEATURE)
 @pytest.mark.critical
 @pytest.mark.author('alexs')
-def test_validation_schemas_after_creating_object():
+def test_validation_schemas_after_creating_object(start_end):
     object_rest = ObjectRest()
     data = object_rest.fill_data(ObjectName.MACBOOK_14_PRO, 2020, 1920,
                                  cpu_model=ObjectCPUModel.CPU_I7, hdd_size=ObjectHardDiskSize.SSD_500,
@@ -30,7 +29,7 @@ def test_validation_schemas_after_creating_object():
 @allure.feature(VALIDATION_OBJECTS_SCHEMAS_FEATURE)
 @pytest.mark.medium
 @pytest.mark.author('alexs')
-def test_validation_schemas_after_updating_object(start_end, set_object_id_with_delete_object):
+def test_validation_schemas_after_updating_object(set_object_id_with_delete_object):
     object_rest = ObjectRest()
     data = object_rest.fill_data(ObjectName.MACBOOK_14_PRO, 2020, 1920,
                                  cpu_model=ObjectCPUModel.CPU_I7, hdd_size=ObjectHardDiskSize.SSD_500,
@@ -46,7 +45,7 @@ def test_validation_schemas_after_updating_object(start_end, set_object_id_with_
 @allure.feature(VALIDATION_OBJECTS_SCHEMAS_FEATURE)
 @pytest.mark.medium
 @pytest.mark.author('alexs')
-def test_validation_schemas_after_updating_object(start_end, set_object_id_with_delete_object):
+def test_validation_schemas_after_updating_object(set_object_id_with_delete_object):
     object_rest = ObjectRest()
     resp = object_rest.delete_object(set_object_id_with_delete_object)
     with allure.step('Validating response schema after deleting object'):
