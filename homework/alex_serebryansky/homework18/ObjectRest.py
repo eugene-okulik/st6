@@ -1,6 +1,7 @@
 import json
 import os
 
+import allure
 import requests
 from jsonschema import validate
 
@@ -14,6 +15,7 @@ class ObjectRest:
         self.objects_url = self.base_url + "/objects"
         self.id_object_url = self.objects_url + "/{}"
 
+    @allure.step("Fill data")
     def fill_data(self, name=None, year=None, price=None,
                   cpu_model=None, hdd_size=None, color=None):
         self.object_data = {
@@ -28,37 +30,44 @@ class ObjectRest:
         }
         return self.object_data
 
-    def create_object(self, object_data: dict) -> dict:
+    @allure.step("Create object")
+    def create_object(self, object_data: dict):
         return requests.post(self.objects_url, json=object_data).json()
 
-
+    @allure.step("Get object by ID")
     def get_object_by_id(self, obj_id: str):
-
         return requests.get(self.id_object_url.format(obj_id)).json()
 
+    @allure.step("Update all object data")
     def update_all_object_data(self, object_data: dict, obj_id: str):
-        requests.put(self.id_object_url.format(obj_id), json=object_data)
+        return requests.put(self.id_object_url.format(obj_id), json=object_data).json()
 
-        return self
-
+    @allure.step("Update different object data")
     def update_object_data(self, object_data: dict, obj_id: str):
-        requests.patch(self.id_object_url.format(obj_id), json=object_data)
+        return requests.patch(self.id_object_url.format(obj_id), json=object_data).json()
 
-        return self
-
+    @allure.step("Delete object")
     def delete_object(self, obj_id: str):
-        requests.delete(self.id_object_url.format(obj_id))
-
-        return self
+        return requests.delete(self.id_object_url.format(obj_id)).json()
 
     @staticmethod
-    def get_json_schema(schema_name: str) -> dict:
+    def get_json_schema(schema_name: str):
         with open(path + f'/{schema_name}', 'r') as file:
             schema = json.load(file)
 
         return schema
 
-    def validate_json(self, json_schema_name: str, response_json: dict) -> None:
+    @allure.step("Validate object JSON data")
+    def validate_json(self, json_schema_name: str, response_json: dict):
         json_schema = self.get_json_schema(json_schema_name)
 
         validate(instance=response_json, schema=json_schema)
+
+    @allure.step("Check values between response and test data")
+    def check_values(self, response: dict, object_id: str, test_data: dict):
+        return ((((response['id'] == object_id and
+                response['name'] == test_data['name'] and
+                response['data']['price'] == test_data['data']['price']) and
+                response['data']['CPU model'] == test_data['data']['CPU model']) and
+                response['data']['Hard disk size'] == test_data['data']['Hard disk size']) and
+                response['data']['color'] == test_data['data']['color'])
