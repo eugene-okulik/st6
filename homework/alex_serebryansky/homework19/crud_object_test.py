@@ -90,20 +90,21 @@ def test_crud_object():
     assert_that((check1, check2, check3, check4), equal_to(True))
 
 
-@allure.title('Checking negative values in updated request')
+@allure.title('Checking negative empty values in updated request')
 @allure.story(UPDATING_OBJECTS_STORY)
 @allure.feature(VALID_OBJECTS_VALUES_FEATURE)
 @pytest.mark.critical
 @pytest.mark.parametrize('name, year, price, cpu_model, hdd_size, color', [
-    ('', '', '', '', '', ''),
+    ({}, {}, {}, {}, {}, {}),
     ((), (), (), (), (), ()),
     ([], [], [], [], [], []), ],
-                         ids=['empty string', 'empty cortege', 'empty array', ])
+                         ids=['empty dictionary', 'empty cortege', 'empty array', ])
 @pytest.mark.author('alexs')
-def test_check_values_of_objects_data(start_end, set_object_id_with_delete_object,
-                                      name, year, price, cpu_model,
-                                      hdd_size, color):
+def test_check_empty_values_of_objects_data(start_end, set_object_id_with_delete_object,
+                                            name, year, price, cpu_model,
+                                            hdd_size, color):
     object_rest = ObjectRest()
     data = object_rest.fill_data(name, year, price, cpu_model, hdd_size, color)
-    response = object_rest.update_all_object_data(data, set_object_id_with_delete_object)
-
+    response = object_rest.update_all_object_data(data, set_object_id_with_delete_object, True)
+    with allure.step('Verification status code of response'):
+        assert response.status_code == ResponseCodes.BAD_REQUEST

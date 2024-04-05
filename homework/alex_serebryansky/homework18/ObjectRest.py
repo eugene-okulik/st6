@@ -39,8 +39,9 @@ class ObjectRest:
         return requests.get(self.id_object_url.format(obj_id)).json()
 
     @allure.step("Update all object data")
-    def update_all_object_data(self, object_data: dict, obj_id: str):
-        return requests.put(self.id_object_url.format(obj_id), json=object_data).json()
+    def update_all_object_data(self, object_data: dict, obj_id: str, need_code: bool = False):
+        return requests.put(self.id_object_url.format(obj_id), json=object_data) if need_code \
+            else requests.put(self.id_object_url.format(obj_id), json=object_data).json()
 
     @allure.step("Update different object data")
     def update_object_data(self, object_data: dict, obj_id: str):
@@ -66,8 +67,8 @@ class ObjectRest:
     @allure.step("Check values between response and test data")
     def check_values(self, response: dict, object_id: str, test_data: dict):
         return ((((response['id'] == object_id and
-                response['name'] == test_data['name'] and
-                response['data']['price'] == test_data['data']['price']) and
-                response['data']['CPU model'] == test_data['data']['CPU model']) and
-                response['data']['Hard disk size'] == test_data['data']['Hard disk size']) and
+                   response['name'] == test_data['name'] and
+                   response['data']['price'] == test_data['data']['price']) and
+                  response['data']['CPU model'] == test_data['data']['CPU model']) and
+                 response['data']['Hard disk size'] == test_data['data']['Hard disk size']) and
                 response['data']['color'] == test_data['data']['color'])
