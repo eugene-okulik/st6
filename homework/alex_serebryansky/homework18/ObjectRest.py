@@ -66,12 +66,10 @@ class ObjectRest:
 
     @allure.step("Check values between response and test data")
     def check_values(self, response: dict, object_id: str, test_data: dict):
-        return ((((response['id'] == object_id and
-                   response['name'] == test_data['name'] and
-                   response['data']['price'] == test_data['data']['price']) and
-                  response['data']['CPU model'] == test_data['data']['CPU model']) and
-                 response['data']['Hard disk size'] == test_data['data']['Hard disk size']) and
-                response['data']['color'] == test_data['data']['color'])
+        return response['id'] == object_id and response['name'] == test_data['name'] and response['data']['price'] == \
+            test_data['data']['price'] and response['data']['CPU model'] == test_data['data']['CPU model'] and \
+            response['data']['Hard disk size'] == test_data['data']['Hard disk size'] and response['data']['color'] == \
+            test_data['data']['color']
 
 
 def get_checks(local_variables: dict):
@@ -79,5 +77,3 @@ def get_checks(local_variables: dict):
               if key.startswith('check') and key.split('check')[1].isdigit()]
     assert checks, 'Checks list is empty'
     return (lambda _checks: all(check for check in checks))(checks)
-
-

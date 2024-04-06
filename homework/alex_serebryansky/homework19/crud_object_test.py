@@ -47,7 +47,7 @@ def test_validation_schemas_after_updating_object(set_object_id_with_delete_obje
 @allure.feature(VALIDATION_OBJECTS_SCHEMAS_FEATURE)
 @pytest.mark.medium
 @pytest.mark.author('alexs')
-def test_validation_schemas_after_updating_object(set_object_id_with_delete_object):
+def test_validation_schemas_after_deleting_object(set_object_id_with_delete_object):
     object_rest = ObjectRest()
     resp = object_rest.delete_object(set_object_id_with_delete_object)
     with allure.step('Validating response schema after deleting object'):
