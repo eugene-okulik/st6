@@ -4,9 +4,11 @@ from hamcrest import assert_that, equal_to
 
 from homework.alex_serebryansky.homework18.ObjectRest import ObjectRest, get_checks
 from homework.alex_serebryansky.homework19 import ObjectPage
-from homework.alex_serebryansky.homework19.TypeDataOfObject import *
+from homework.alex_serebryansky.homework19.TypeDataOfObject import ObjectName, ObjectCPUModel, ObjectHardDiskSize, \
+    ObjectColor
 from homework.alex_serebryansky.homework19.ResponseMessage import ResponseMessages, ResponseCodes
-from homework.alex_serebryansky.homework19.object_features import *
+from homework.alex_serebryansky.homework19.object_features import UPDATING_OBJECTS_STORY, \
+    VALIDATION_OBJECTS_SCHEMAS_FEATURE, CREATING_OBJECTS_STORY, DELETING_OBJECTS_STORY, VALID_OBJECTS_VALUES_FEATURE
 
 
 @allure.title('Checking validation response schema after creating object')
