@@ -98,7 +98,7 @@ def test_crud_object():
     ({}, {}, {}, {}, {}, {}),
     ((), (), (), (), (), ()),
     ([], [], [], [], [], []), ],
-                         ids=['empty dictionary', 'empty cortege', 'empty array', ])
+    ids=['empty dictionary', 'empty cortege', 'empty array', ])
 @pytest.mark.author('alexs')
 def test_check_empty_values_of_objects_data(start_end, set_object_id_with_delete_object,
                                             name, year, price, cpu_model,

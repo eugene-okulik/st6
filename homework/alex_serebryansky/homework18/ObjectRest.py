@@ -78,6 +78,6 @@ def get_checks(local_variables: dict):
     checks = [value for key, value in local_variables.items()
               if key.startswith('check') and key.split('check')[1].isdigit()]
     assert checks, 'Checks list is empty'
-    result = lambda checks: all(check for check in checks)
+    return (lambda _checks: all(check for check in checks))(checks)
 
-    return result(checks)
+
