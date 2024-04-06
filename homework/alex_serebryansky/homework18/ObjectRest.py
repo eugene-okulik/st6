@@ -72,3 +72,12 @@ class ObjectRest:
                   response['data']['CPU model'] == test_data['data']['CPU model']) and
                  response['data']['Hard disk size'] == test_data['data']['Hard disk size']) and
                 response['data']['color'] == test_data['data']['color'])
+
+
+def get_checks(local_variables: dict):
+    checks = [value for key, value in local_variables.items()
+              if key.startswith('check') and key.split('check')[1].isdigit()]
+    assert checks, 'Checks list is empty'
+    result = lambda checks: all(check for check in checks)
+
+    return result(checks)

@@ -1,5 +1,6 @@
 class ResponseMessages:
     OBJECT_NOT_FOUND = 'Oject with id={} was not found.'
+    OBJECT_HAS_DELETED = 'Object with id = {} has been deleted.'
 
 
 class ResponseCodes:

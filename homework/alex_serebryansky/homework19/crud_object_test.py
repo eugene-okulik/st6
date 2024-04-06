@@ -2,7 +2,7 @@ import allure
 import pytest
 from hamcrest import assert_that, equal_to
 
-from homework.alex_serebryansky.homework18.ObjectRest import ObjectRest
+from homework.alex_serebryansky.homework18.ObjectRest import ObjectRest, get_checks
 from homework.alex_serebryansky.homework19 import ObjectPage
 from homework.alex_serebryansky.homework19.TypeDataOfObject import *
 from homework.alex_serebryansky.homework19.ResponseMessage import ResponseMessages, ResponseCodes
@@ -81,12 +81,11 @@ def test_crud_object():
 
     check3 = object_info2 != object_info3
 
-    object_rest.delete_object(object_id)
-    resp = object_rest.get_object_by_id(object_id)
+    check4 = object_rest.delete_object(object_id)['message'] == ResponseMessages.OBJECT_HAS_DELETED.format(object_id)
 
-    check4 = resp['message'] == ResponseMessages.OBJECT_NOT_FOUND.format(object_id)
+    check5 = object_rest.get_object_by_id(object_id)['error'] == ResponseMessages.OBJECT_NOT_FOUND.format(object_id)
 
-    assert_that((check1, check2, check3, check4), equal_to(True))
+    assert_that(get_checks(locals()), equal_to(True))
 
 
 @allure.title('Checking negative empty values in updated request')
