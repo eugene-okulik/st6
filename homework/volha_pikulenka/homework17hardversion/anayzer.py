@@ -58,18 +58,16 @@ try:
 
         blocks = split_text_by_date(data)
 
-        if text is not None:
-            for i in blocks:
+        for i in blocks:
+            if text is not None:
                 if text in i:
                     print(i[:100])
 
-        if unwanted is not None:
-            for i in blocks:
+            if unwanted is not None:
                 if unwanted not in i:
                     print(i[:100])
 
-        if date is not None:
-            for i in blocks:
+            if date is not None:
                 block_date = datetime.datetime.strptime(i[:23], '%Y-%m-%d %H:%M:%S.%f')
                 if date[0] in ['>', '<', '=']:
                     operation = date[0]
@@ -79,11 +77,11 @@ try:
                        (operation == '=' and block_date == given_date):
                         print(i[:100])
 
-                elif date[23] == '/':
-                    given_date_from = datetime.datetime.strptime(date[:23], '%Y-%m-%d %H:%M:%S.%f')
-                    given_date_to = datetime.datetime.strptime(date[24:], '%Y-%m-%d %H:%M:%S.%f')
-                    if given_date_from < block_date < given_date_to:
-                        print(i[:100])
+                    elif date[23] == '/':
+                        given_date_from = datetime.datetime.strptime(date[:23], '%Y-%m-%d %H:%M:%S.%f')
+                        given_date_to = datetime.datetime.strptime(date[24:], '%Y-%m-%d %H:%M:%S.%f')
+                        if given_date_from < block_date < given_date_to:
+                            print(i[:100])
 
 except (FileNotFoundError, ValueError) as err:
     print(err)
