@@ -4,6 +4,8 @@ import datetime
 import re
 
 
+
+
 parser = argparse.ArgumentParser()
 parser.add_argument("path", help="Path to file or folder with files")
 # D:\AutoPy\st6\homework\eugene_okulik\data\logs
@@ -59,13 +61,11 @@ try:
         blocks = split_text_by_date(data)
 
         for i in blocks:
-            if text is not None:
-                if text in i:
-                    print(i[:100])
+            if text is not None and text in i:
+                print(i[:100])
 
-            if unwanted is not None:
-                if unwanted not in i:
-                    print(i[:100])
+            if unwanted is not None and unwanted not in i:
+                print(i[:100])
 
             if date is not None:
                 block_date = datetime.datetime.strptime(i[:23], '%Y-%m-%d %H:%M:%S.%f')
