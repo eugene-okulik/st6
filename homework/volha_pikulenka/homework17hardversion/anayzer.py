@@ -23,7 +23,6 @@ path = args.path
 date = args.date
 text = args.text
 unwanted = args.unwantedtext
-full = args.full
 
 
 def list_files(path):
@@ -75,12 +74,11 @@ try:
                 if date[0] in ['>', '<', '=']:
                     operation = date[0]
                     given_date = datetime.datetime.strptime(date[1:], '%Y-%m-%d %H:%M:%S.%f')
-                    if operation == '>' and block_date > given_date:
+                    if (operation == '>' and block_date > given_date) or \
+                       (operation == '<' and block_date < given_date) or \
+                       (operation == '=' and block_date == given_date):
                         print(i[:100])
-                    elif operation == '<' and block_date < given_date:
-                        print(i[:100])
-                    elif operation == '=' and block_date == given_date:
-                        print(i[:100])
+
                 elif date[23] == '/':
                     given_date_from = datetime.datetime.strptime(date[:23], '%Y-%m-%d %H:%M:%S.%f')
                     given_date_to = datetime.datetime.strptime(date[24:], '%Y-%m-%d %H:%M:%S.%f')
