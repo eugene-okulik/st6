@@ -84,7 +84,7 @@ try:
                 elif date[23] == '/':
                     given_date_from = datetime.datetime.strptime(date[:23], '%Y-%m-%d %H:%M:%S.%f')
                     given_date_to = datetime.datetime.strptime(date[24:], '%Y-%m-%d %H:%M:%S.%f')
-                    if block_date > given_date_from and block_date < given_date_to:
+                    if given_date_from < block_date < given_date_to:
                         print(i[:100])
 
 except (FileNotFoundError, ValueError) as err:
