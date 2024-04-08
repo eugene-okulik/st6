@@ -14,7 +14,7 @@ parser.add_argument("--date",
                     -greater than '>2024-04-07 00:00:00.000'
                     -less than '<2024-04-07 00:00:00.000'
                     -exact date '=2024-04-07 00:00:00.000'
-                    -period '2024-04-07 00:00:00.000/2025-04-07 00:00:00.000'""",
+                    -period '2024-04-07 00:00:00.000/2025-04-07 00:00:00.000""",
                     type=str)
 
 args = parser.parse_args()
@@ -84,7 +84,7 @@ try:
                 elif date[23] == '/':
                     given_date_from = datetime.datetime.strptime(date[:23], '%Y-%m-%d %H:%M:%S.%f')
                     given_date_to = datetime.datetime.strptime(date[24:], '%Y-%m-%d %H:%M:%S.%f')
-                    if (block_date > given_date_from and block_date < given_date_to):
+                    if block_date > given_date_from and block_date < given_date_to:
                         print(i[:100])
 
 except (FileNotFoundError, ValueError) as err:
