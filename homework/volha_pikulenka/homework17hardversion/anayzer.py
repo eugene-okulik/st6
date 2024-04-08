@@ -4,8 +4,6 @@ import datetime
 import re
 
 
-
-
 parser = argparse.ArgumentParser()
 parser.add_argument("path", help="Path to file or folder with files")
 # D:\AutoPy\st6\homework\eugene_okulik\data\logs
