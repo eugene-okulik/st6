@@ -143,7 +143,7 @@ def display_result(path, text, date, unwanted):
     res, count_block, count_res = open_and_find(path, text, date, unwanted)
     if args.text and args.full:
         print(res)
-    elif args.text and args.full == False:
+    elif args.text and args.full is False:
         cut_message_for_text(text)
     else:
         if args.full:
