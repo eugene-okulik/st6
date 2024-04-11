@@ -18,8 +18,7 @@ class CreateObject(BaseEndpoints):
 
     @allure.step('Send POST request')
     def create_object(self, payload=None):
-        if payload is None:
-            payload = PAYLOAD
+        payload = payload if payload else PAYLOAD
         self.response = requests.post('https://api.restful-api.dev/objects', json=payload)
         self.status_code = self.response.status_code
         self.response_json = self.response.json()
