@@ -69,6 +69,23 @@ def test_patch_part_update_obj(post_id):
     assert response.status_code == 200, 'Status code in NOT OK'
 
 
+def test_post_create_obj():
+    payload = {
+        "name": "Apple Iphone 13 ProMax",
+        "data": {
+            "year": 2022,
+            "price": 100.99,
+            "CPU model": "Seleron",
+            "Hard disk size": "512 Gb"
+        }
+    }
+    headers = {
+        'Content-type': 'application/json'
+    }
+    response = requests.post('https://api.restful-api.dev/objects', json=payload, headers=headers)
+    assert response.status_code == 200
+
+
 def test_delete_obj(post_id, end):
     response = requests.delete(f'https://api.restful-api.dev/objects/{post_id}')
     assert response.status_code == 200, 'Status code in NOT OK'
