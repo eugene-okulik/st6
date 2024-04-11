@@ -9,6 +9,3 @@ class DeleteObject(BaseEndpoints):
         self.response = requests.delete(f'https://api.restful-api.dev/objects/{obj_id}')
         self.response_json = self.response.json()
         self.status_code = self.response.status_code
-
-
-

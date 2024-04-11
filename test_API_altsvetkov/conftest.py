@@ -11,5 +11,3 @@ def obj_id():
     yield obj_id
     delete_object = DeleteObject()
     delete_object.delete_object(obj_id)
-
-

@@ -26,8 +26,3 @@ class ChangeObject(BaseEndpoints):
     @allure.step('Check the response year')
     def resp_year_is_req_year(self, year):
         assert self.response_json['data']['year'] == year
-
-
-
-
-

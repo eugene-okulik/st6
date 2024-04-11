@@ -31,8 +31,3 @@ class CreateObject(BaseEndpoints):
     @allure.step('Check JSON Schema')
     def check_json_schema(self):
         CheckSchemasPost(**self.response_json)
-
-
-
-
-
