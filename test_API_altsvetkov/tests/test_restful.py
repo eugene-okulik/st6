@@ -81,3 +81,5 @@ def test_delete_object(obj_id):
     get_object = GetObject()
     get_object.get_obj(obj_id)
     get_object.check_status_code_is_404()
+    delete_object.check_json_schemas()
+    delete_object.message_verification(obj_id)
