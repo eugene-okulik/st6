@@ -13,3 +13,7 @@ class CheckSchemasPost(BaseModel):
     name: str
     data: DataSchemasPost
     createdAt: str
+
+
+class CheckSchemasDelete(BaseModel):
+    message: str
