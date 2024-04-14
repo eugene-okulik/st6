@@ -71,6 +71,7 @@ def test_post_create_obj():
     with allure.step('Проверка статус кода 200'):
         assert response.status_code == 200
 
+
 @allure.title('Проверка удаления объекта')
 def test_delete_obj(post_id, end):
     response = requests.delete(f'https://api.restful-api.dev/objects/{post_id}')
@@ -90,6 +91,7 @@ class NewObjWithObj(BaseModel):
     name: str
     data: ObjectData
     createdAt: str
+
 
 @allure.feature('Object')
 @allure.story('Create object')
