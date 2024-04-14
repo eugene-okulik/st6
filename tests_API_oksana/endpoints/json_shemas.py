@@ -11,4 +11,3 @@ class DataModel(BaseModel):
 class PayloadModel(BaseModel):
     name: str
     data: DataModel
-

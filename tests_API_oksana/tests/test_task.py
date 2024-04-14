@@ -54,8 +54,8 @@ def test_put_object_by_id(name, post_id, put_publication):
 @pytest.mark.medium
 def test_patch_object_by_id(post_id, patch_publication):
     payload = {
-            "name": "Samsung"
-        }
+        "name": "Samsung"
+    }
 
     patch_publication.patch_obj_by_id(post_id=post_id, payload=payload)
     patch_publication.validate_patch_response(expected_name=payload['name'])

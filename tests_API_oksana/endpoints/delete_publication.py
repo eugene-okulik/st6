@@ -9,4 +9,3 @@ class DeletePublication(BaseEndpoint):
     def delete_publication(self, post_id):
         self.response = requests.delete(f'https://api.restful-api.dev/objects/{post_id}')
         self.status_code = self.response.status_code
-

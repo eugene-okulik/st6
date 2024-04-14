@@ -13,4 +13,3 @@ class GetPublication(BaseEndpoint):
 
     def check_id_is_correct(self, post_id):
         assert self.response.json()['id'] == post_id
-
