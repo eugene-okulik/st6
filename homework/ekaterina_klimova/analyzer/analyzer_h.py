@@ -45,7 +45,7 @@ def check_path(path):
             print("No any files")
             return []
     else:
-        files = path
+        files = [path]
     return files
 
 
