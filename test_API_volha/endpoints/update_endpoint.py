@@ -22,4 +22,3 @@ class UpdateBookingFull(BaseEndpoint):
     @allure.step('Asserting checkin updated')
     def check_booking_dates_checkin(self, checkin):
         assert self.booking_dates_checkin == checkin, 'Date wasn\'t updated'
-

@@ -16,8 +16,6 @@ class BaseEndpoint:
         "additionalneeds": "Breakfast"
     }
 
-
-
     response = None
     response_code = None
     response_json = None

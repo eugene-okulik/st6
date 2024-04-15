@@ -1,5 +1,5 @@
 import requests
-from test_API_volha.endpoints.json_schemas import *
+from test_API_volha.endpoints.json_schemas import Booking
 import allure
 from test_API_volha.endpoints.BaseEndpoint import BaseEndpoint
 
@@ -19,4 +19,3 @@ class GetBookingById(BaseEndpoint):
     @allure.step('Check schema is correct')
     def check_response_schema(self):
         Booking(**self.response_json)
-

@@ -1,4 +1,5 @@
 import allure
+import pytest
 from test_API_volha.conftest import *
 
 

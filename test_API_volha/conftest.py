@@ -55,6 +55,7 @@ def delete_booking_by_id():
 def update_booking_full():
     return UpdateBookingFull()
 
+
 @pytest.fixture()
 def update_booking_part():
     return UpdateBookingPart()

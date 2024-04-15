@@ -1,5 +1,5 @@
 import requests
-from test_API_volha.endpoints.json_schemas import *
+from test_API_volha.endpoints.json_schemas import BookingResponse
 import allure
 from test_API_volha.endpoints.BaseEndpoint import BaseEndpoint
 
