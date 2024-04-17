@@ -38,15 +38,14 @@ date = args.date
 
 # определить что указал пользователь: файл или папку
 def check_path(path):
-    if os.path.isfile(path):
-        current_directory = os.getcwd()
-        files = current_directory + '\\' + path
-    elif os.path.isdir(path):
+    if os.path.isdir(path):
         list_dir = (next(os.walk(path))[2])
         files = [os.path.join(path, file) for file in list_dir]
         if not files:
             print("No any files")
             return []
+    else:
+        files = [path]
     return files
 
 
@@ -59,9 +58,8 @@ def open_and_parse_to_blocks(path_to_file):
         block = ''
         for line in lines:
             try:
-                if datetime.strptime(line[:23].strip(), '%Y-%m-%d %H:%M:%S.%f'):
-                    current_date = datetime.strptime(line[:23], '%Y-%m-%d %H:%M:%S.%f')
-                    block = line
+                current_date = datetime.strptime(line[:23], '%Y-%m-%d %H:%M:%S.%f')
+                block = line
             except ValueError:
                 continue
             else:
@@ -143,7 +141,9 @@ def display_result(path, text, date, unwanted):
         print('\033[31mUnwanted text:\033[0m', args.unwanted)
 
     res, count_block, count_res = open_and_find(path, text, date, unwanted)
-    if args.text:
+    if args.text and args.full:
+        print(res)
+    elif args.text and args.full is False:
         cut_message_for_text(text)
     else:
         if args.full:

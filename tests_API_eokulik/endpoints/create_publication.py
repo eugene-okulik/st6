@@ -1,6 +1,8 @@
 import requests
 import allure
 from tests_API_eokulik.endpoints.base_endpoint import BaseEndpoint
+import logging
+logging.getLogger(__name__)
 
 HEADERS = {
     'Content-type': 'application/json'
@@ -17,6 +19,8 @@ class CreatePublication(BaseEndpoint):
     @allure.step('Send post request')
     def create_new_publication(self, payload=None, headers=None):
         headers = headers if headers else HEADERS
+        logging.info(f'Headers for publication {headers}')
+        logging.info(f'Payload for publication {payload}')
         self.response = requests.post('https://jsonplaceholder.typicode.com/posts', json=payload, headers=headers)
         self.status_code = self.response.status_code
         self.response_json = self.response.json()
