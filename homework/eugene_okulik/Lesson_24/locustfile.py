@@ -21,11 +21,10 @@ class PublicationUser(HttpUser):
             "body": "my body",
             "userId": 1
         }
-        response = self.client.post('/posts', json=payload).json()
+        response = self.client.post('/posts', json=payload).json()  # noqa F841
         # self.post_ids.add(response['id'])
         self.post_ids.add(random.randrange(1, 100))
 
     def on_stop(self):
         for post_id in self.post_ids:
             self.client.delete(f'/posts/{post_id}')
-
