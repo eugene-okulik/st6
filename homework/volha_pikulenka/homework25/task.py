@@ -22,4 +22,4 @@ def test_open_page(driver):
     result_field = driver.find_element(By.ID, 'result-text').text
 
     assert result_field == 'find_me'
-    print(str(result_field))
+    print(result_field)
