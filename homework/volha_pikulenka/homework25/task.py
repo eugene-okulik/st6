@@ -9,6 +9,7 @@ import pytest
 def driver():
     options = Options()
     driver = webdriver.Chrome(options=options)
+
     yield driver
     driver.close()
 
