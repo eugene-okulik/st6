@@ -24,3 +24,5 @@ def test_input_field(driver):
     search_input_field.send_keys(Keys.ENTER)
     search_result_text = driver.find_element(By.ID, 'result-text')
     print(search_result_text.text)
+    assert search_result_text.text == 'Hello'
+
