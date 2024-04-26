@@ -24,4 +24,3 @@ def test_open_page(driver):
     search_field.send_keys(Keys.ENTER)
     expected_text = driver.find_element(By.ID, "result-text").text
     assert expected_text == "WellDone"
-
