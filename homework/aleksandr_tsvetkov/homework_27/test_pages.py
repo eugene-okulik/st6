@@ -30,4 +30,4 @@ def test_text_hello_word(driver):
     driver.get('https://the-internet.herokuapp.com/dynamic_loading/2')
     driver.find_element(By.CSS_SELECTOR, '#start > button').click()
     hello = WebDriverWait(driver, 6).until(ec.visibility_of_element_located((By.CSS_SELECTOR, '#finish > h4')))
-    assert hello.is_displayed()
+    assert hello.text == 'Hello World!'
