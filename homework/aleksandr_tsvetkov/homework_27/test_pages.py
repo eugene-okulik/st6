@@ -21,12 +21,11 @@ def driver():
 def test_result_text(driver):
     driver.get('https://www.qa-practice.com/elements/select/single_select')
     select_language = Select(driver.find_element(By.CSS_SELECTOR, '#id_choose_language'))
-    languages = [option.text for option in select_language.options]
-    random_language = random.choice(languages[1:])
-    select_language.select_by_visible_text(random_language)
+    language = random.choice([option.text for option in select_language.options[1:]])
+    select_language.select_by_visible_text(language)
     driver.find_element(By.CSS_SELECTOR, '#submit-id-submit').click()
     result = driver.find_element(By.CSS_SELECTOR, '#result-text')
-    assert result.text == random_language
+    assert result.text == language
 
 
 def test_text_hello_word(driver):
