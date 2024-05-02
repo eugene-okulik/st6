@@ -18,9 +18,8 @@ def driver():
 
 def test_result_text(driver):
     driver.get('https://www.qa-practice.com/elements/select/single_select')
-    choose_language_field = driver.find_element(By.CSS_SELECTOR, '#id_choose_language')
-    language = Select(choose_language_field)
-    language.select_by_visible_text('Python')
+    select_language = Select(driver.find_element(By.CSS_SELECTOR, '#id_choose_language'))
+    select_language.select_by_visible_text('Python')
     driver.find_element(By.CSS_SELECTOR, '#submit-id-submit').click()
     result_text = driver.find_element(By.CSS_SELECTOR, '#result-text')
     assert result_text.text == 'Python'
