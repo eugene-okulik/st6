@@ -1,3 +1,5 @@
+import random
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -19,10 +21,12 @@ def driver():
 def test_result_text(driver):
     driver.get('https://www.qa-practice.com/elements/select/single_select')
     select_language = Select(driver.find_element(By.CSS_SELECTOR, '#id_choose_language'))
-    select_language.select_by_visible_text('Python')
+    languages = [option.text for option in select_language.options]
+    random_language = random.choice(languages[1:])
+    select_language.select_by_visible_text(random_language)
     driver.find_element(By.CSS_SELECTOR, '#submit-id-submit').click()
-    result_text = driver.find_element(By.CSS_SELECTOR, '#result-text')
-    assert result_text.text == 'Python'
+    result = driver.find_element(By.CSS_SELECTOR, '#result-text')
+    assert result.text == random_language
 
 
 def test_text_hello_word(driver):
