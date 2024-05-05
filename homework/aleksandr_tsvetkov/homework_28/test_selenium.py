@@ -1,5 +1,5 @@
 import pytest
-from time import sleep
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -66,4 +66,3 @@ def test_popup_and_iframe(driver):
     driver.find_element(By.CSS_SELECTOR, '#submit-id-submit').click()
     correct = driver.find_element(By.CSS_SELECTOR, '#check-result').text
     assert correct == 'Correct!'
-    sleep(3)
