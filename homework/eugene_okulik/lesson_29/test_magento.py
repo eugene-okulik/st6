@@ -33,4 +33,3 @@ def test_search(driver):
     with allure.step('Check at least one name has searched word'):
         names = driver.find_elements(By.CSS_SELECTOR, '.product-item-link')
         assert len(list(filter(lambda x: 'top' in x.text.lower(), names))) > 0
-
