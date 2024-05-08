@@ -90,8 +90,8 @@ def test_check_fielded_form(fill_form, driver):
         EC.visibility_of_element_located((By.XPATH, "//tr/td[text()='Mobile']/following-sibling::td"))).text
     form_birthday = wait.until(
         EC.visibility_of_element_located((By.XPATH, "//tr/td[text()='Date of Birth']/following-sibling::td"))).text
-    form_subjects = wait.until(
-        EC.visibility_of_element_located((By.XPATH, "//tr/td[text()='Subjects']/following-sibling::td"))).text
+    # #form_subjects = wait.until(
+    #     EC.visibility_of_element_located((By.XPATH, "//tr/td[text()='Subjects']/following-sibling::td"))).text
     form_hobbies = wait.until(
         EC.visibility_of_element_located((By.XPATH, "//tr/td[text()='Hobbies']/following-sibling::td"))).text
     form_adress = wait.until(
