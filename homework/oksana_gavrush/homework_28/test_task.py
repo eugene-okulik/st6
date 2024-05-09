@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import pytest
-from time import sleep
 from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -50,7 +49,6 @@ def test_page_second(driver):
     actions.click(compare).perform()
     product = driver.find_element(By.CSS_SELECTOR, '[class="page messages"] >div >div > div >div')
     assert product.text == "You added product Push It Messenger Bag to the comparison list."
-    sleep(3)
 
 
 def test_page_third(driver):
