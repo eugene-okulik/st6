@@ -68,7 +68,8 @@ def fill_form(driver):
         city.send_keys(Keys.ENTER)
 
         subjects = driver.find_element(By.XPATH, '//input[@id="subjectsInput"]')
-        subjects.send_keys("automation")
+        subjects.send_keys("English")
+        subjects.send_keys(Keys.ENTER)
 
         driver.execute_script("arguments[0].scrollIntoView();", button)
         button.click()
@@ -78,6 +79,7 @@ def fill_form(driver):
 
 def test_check_fielded_form(fill_form, driver):
     fill_form()
+
     wait = WebDriverWait(driver, 10)
 
     student_name = wait.until(
@@ -90,8 +92,8 @@ def test_check_fielded_form(fill_form, driver):
         EC.visibility_of_element_located((By.XPATH, "//tr/td[text()='Mobile']/following-sibling::td"))).text
     form_birthday = wait.until(
         EC.visibility_of_element_located((By.XPATH, "//tr/td[text()='Date of Birth']/following-sibling::td"))).text
-    # #form_subjects = wait.until(
-    #     EC.visibility_of_element_located((By.XPATH, "//tr/td[text()='Subjects']/following-sibling::td"))).text
+    form_subjects = wait.until(
+        EC.visibility_of_element_located((By.XPATH, "//tr/td[text()='Subjects']/following-sibling::td"))).text
     form_hobbies = wait.until(
         EC.visibility_of_element_located((By.XPATH, "//tr/td[text()='Hobbies']/following-sibling::td"))).text
     form_adress = wait.until(
@@ -104,7 +106,7 @@ def test_check_fielded_form(fill_form, driver):
     assert form_gender == "Female"
     assert form_mobile == "3753312345"
     assert form_birthday == "09 July,2034"
-    # assert form_subjects == "automation" Bug - not displayed of inputed text
+    assert form_subjects == "English"
     assert form_hobbies == "Sports, Reading, Music"
     assert form_adress == "str Molodezhnaya"
     assert form_state == "Haryana Karnal"
