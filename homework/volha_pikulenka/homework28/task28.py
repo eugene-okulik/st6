@@ -74,21 +74,13 @@ def test2(driver):
 
 def test3(driver):
     driver.get('https://www.qa-practice.com/elements/popup/iframe_popup')
-    button = driver.find_element(By.XPATH, '//*[@type="button"][1]')
-    button.click()
+    driver.find_element(By.XPATH, '//*[@type="button"][1]').click()
     iframe = driver.find_element(By.TAG_NAME, 'iframe')
     driver.switch_to.frame(iframe)
     copy_text = driver.find_element(By.CSS_SELECTOR, '#text-to-copy').text
     driver.switch_to.default_content()
-
-    check_btn = driver.find_element(By.XPATH, '//*[@type="submit"]')
-    check_btn.click()
-
-    input_field = driver.find_element(By.CSS_SELECTOR, '#id_text_from_iframe')
-    input_field.send_keys(copy_text)
-
-    submit_btn = driver.find_element(By.CSS_SELECTOR, '#submit-id-submit')
-    submit_btn.click()
-
+    driver.find_element(By.XPATH, '//*[@type="submit"]').click()
+    driver.find_element(By.CSS_SELECTOR, '#id_text_from_iframe').send_keys(copy_text)
+    driver.find_element(By.CSS_SELECTOR, '#submit-id-submit').click()
     result = driver.find_element(By.CSS_SELECTOR, '#check-result').get_attribute('outerText')
     assert result == 'Correct!'
