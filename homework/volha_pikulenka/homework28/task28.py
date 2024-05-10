@@ -46,8 +46,7 @@ def test1(driver):
     driver.switch_to.window(initial)
 
     # На начальной вкладке откройте корзину
-    cart = driver.find_element(By.LINK_TEXT, 'Cart')
-    cart.click()
+    driver.find_element(By.LINK_TEXT, 'Cart').click()
 
     # Убедитесь, что в корзине тот товар, который вы добавляли
     (WebDriverWait(driver, 6).
