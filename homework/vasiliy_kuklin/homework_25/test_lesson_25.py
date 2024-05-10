@@ -5,6 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 import pytest
 
+
 @pytest.fixture()
 def driver():
     options = Options()
