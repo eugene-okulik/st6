@@ -10,14 +10,13 @@ class SalePage(BasePage):
 
     @allure.step('Click the button [Shop Women\'s Deal]')
     def click_button_shop_women_deals(self):
-        self.find(loc.BUTTON_SHOP_WOMEN_DEALS).click()
+        button_women_shop = self.find(loc.BUTTON_SHOP_WOMEN_DEALS)
+        assert button_women_shop.is_enabled()
+        button_women_shop.click()
 
     # Проверка перенаправления на страницу распродажи после нажатия на button[Shop Women Deal's]
     @allure.step('Check the button[Shop Women\'s Deal] directs to the relevant page')
     def check_btn_shop_women_is_redirects_to_sale_page(self):
-        button_shop = self.find(loc.BUTTON_SHOP_WOMEN_DEALS)
-        assert button_shop.is_enabled()
-        button_shop.click()
         assert self.driver.current_url == 'https://magento.softwaretestingboard.com/promotions/women-sale.html'
         self.driver.back()
         assert self.driver.current_url == 'https://magento.softwaretestingboard.com/sale.html'

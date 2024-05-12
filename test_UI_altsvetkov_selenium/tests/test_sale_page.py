@@ -1,5 +1,6 @@
 def test_check_button_shop_women_deals(sale_page):
     sale_page.open()
+    sale_page.click_button_shop_women_deals()
     sale_page.check_btn_shop_women_is_redirects_to_sale_page()
 
 
