@@ -24,7 +24,6 @@ class AccountPage:
 class EcoFriendly:
     PAGETITLE = (By.XPATH, '//*[@data-ui-id="page-title-wrapper"]')
     PAGECATEGORY = (By.CSS_SELECTOR, '.item.category36')
-    # DEFAULTNUMOFITEMS = (By.CSS_SELECTOR, '.products.list.items.product-items')
     DEFAULTNUMOFITEMS = (By.CSS_SELECTOR, '.item.product.product-item')
 
 
