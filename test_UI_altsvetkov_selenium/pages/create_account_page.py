@@ -1,6 +1,4 @@
 import allure
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
 from test_UI_altsvetkov_selenium.pages.base_page import BasePage
@@ -8,7 +6,6 @@ from test_UI_altsvetkov_selenium.locators.locators import CreateAccountPageLoc a
 
 
 class CreateAccountPage(BasePage):
-
     relative_url = '/customer/account/create/'
 
     # Заполнение полей ввода
@@ -108,14 +105,13 @@ class CreateAccountPage(BasePage):
     # Проверка рекомендаций для ввода пароля
     @allure.step('Check message Minimum field length requirements for password')
     def check_password_field_requirements_prompt(self):
-        wait = WebDriverWait(self.driver, 5)
-        password_req = wait.until(ec.presence_of_element_located((By.CSS_SELECTOR, '#password-error')))
-        assert password_req.text == ('Minimum length of this field must be equal or greater than 8 symbols. '
-                                     'Leading and trailing spaces will be ignored.')
+        password_hint = self.wait_5s.until(ec.presence_of_element_located(loc.PASSWORD_ERROR_HINT))
+        assert password_hint.text == ('Minimum length of this field must be equal or greater than 8 symbols. '
+                                      'Leading and trailing spaces will be ignored.')
 
     # Проверка сообщения об успешной регистрации
     @allure.step('Check the message about the successful creation of an account')
     def check_create_account_message(self):
         assert self.driver.current_url == 'https://magento.softwaretestingboard.com/customer/account/'
-        assert self.driver.find_element(By.CSS_SELECTOR, '.message-success').text == ('Thank you for registering '
-                                                                                      'with Main Website Store.')
+        assert self.find(loc.SUCCESSFUL_REGISTRATION_MESSAGE).text == ('Thank you for registering '
+                                                                       'with Main Website Store.')
