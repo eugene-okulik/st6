@@ -28,7 +28,6 @@ class EcoFriendly:
     DEFAULTNUMOFITEMS = (By.CSS_SELECTOR, '.item.product.product-item')
 
 
-
 class Sale:
     PAGETITLE = (By.XPATH, '//*[@data-ui-id="page-title-wrapper"]')
     PAGECATEGORY = (By.CSS_SELECTOR, '.item.category37')
@@ -36,4 +35,3 @@ class Sale:
     CATEGORYMENU1 = (By.XPATH, '//*[@class="categories-menu"]/strong [@class="title"][1]')
     CATEGORYMENU2 = (By.XPATH, '//*[@class="categories-menu"]/strong [@class="title"][2]')
     CATEGORYMENU3 = (By.XPATH, '//*[@class="categories-menu"]/strong [@class="title"][3]')
-
