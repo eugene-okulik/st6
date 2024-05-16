@@ -13,6 +13,8 @@ class CreateAccountPageLoc:
     EMAIL_LABEL = (By.CSS_SELECTOR, 'label[for="email_address"]')
     PASSWORD_LABEL = (By.CSS_SELECTOR, 'label[for="password"]')
     CONFIRM_PASSWORD_LABEL = (By.CSS_SELECTOR, 'label[for="password-confirmation"]')
+    PASSWORD_ERROR_HINT = (By.CSS_SELECTOR, '#password-error')
+    SUCCESSFUL_REGISTRATION_MESSAGE = (By.CSS_SELECTOR, '.message-success')
 
 
 class EcoCollectionPageLoc:
@@ -20,7 +22,7 @@ class EcoCollectionPageLoc:
     PRICE_OF_GOODS = (By.XPATH, '//*[@class="price-wrapper "]')
     BUTTON_SET_DESCENDING = (By.XPATH, '//a[@title="Set Descending Direction"]')
     IMAGE_PHOTO = (By.CSS_SELECTOR, '.product-image-photo')
-    BUTTON_NEXT = (By.CSS_SELECTOR, 'div:nth-child(6) ul > li.item.pages-item-next > a')
+    BUTTON_NEXT = (By.CSS_SELECTOR, 'div:nth-child(5) > div.pages > ul > li.item.pages-item-next > a')
 
 
 class SalePageLoc:

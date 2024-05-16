@@ -1,10 +1,8 @@
 from selenium.common import TimeoutException
 from test_UI_altsvetkov_selenium.pages.base_page import BasePage
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.select import Select
 import allure
-
 
 from test_UI_altsvetkov_selenium.locators.locators import EcoCollectionPageLoc as loc
 
@@ -16,7 +14,7 @@ class EcoCollectionPage(BasePage):
     # Выбор значения из dropdown[Sort By]
     @allure.step('Select sort by')
     def select_sort_by_value(self, value):
-        dropdown = WebDriverWait(self.driver, 2).until(ec.visibility_of_element_located(loc.DROPDOWN_SORT_BY))
+        dropdown = self.wait_5s.until(ec.visibility_of_element_located(loc.DROPDOWN_SORT_BY))
         select = Select(dropdown)
         select.select_by_value(value)
 
@@ -30,9 +28,8 @@ class EcoCollectionPage(BasePage):
     # Проверка сортировки цены по возрастанию
     @allure.step('Ascending price check')
     def check_ascending_price(self):
-        wait = WebDriverWait(self.driver, 3)
         try:
-            wait.until(ec.url_contains('product_list_order=price'))
+            self.wait_5s.until(ec.url_contains('product_list_order=price'))
         except TimeoutException:
             raise AssertionError("The URL did not contain 'product_list_order=price' after choosing to sort by price")
         prices = self.find_all(loc.PRICE_OF_GOODS)
@@ -42,8 +39,7 @@ class EcoCollectionPage(BasePage):
     # Проверка сортировки цены по убыванию
     @allure.step('Descending price check')
     def check_descending_price(self):
-        wait = WebDriverWait(self.driver, 3)
-        wait.until(ec.presence_of_element_located(loc.BUTTON_SET_DESCENDING)).click()
+        self.wait_5s.until(ec.presence_of_element_located(loc.BUTTON_SET_DESCENDING)).click()
         prices = self.find_all(loc.PRICE_OF_GOODS)
         prices_list = [price.text for price in prices]
         assert prices_list == sorted(prices_list, reverse=True), (f'Expected price:{sorted(prices_list, reverse=True)}.'
@@ -62,5 +58,5 @@ class EcoCollectionPage(BasePage):
     # Проверка перехода на другую страницу после нажатия на button "Next"
     @allure.step('Check next button')
     def check_next_button_redirect_next_page(self):
-        WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located(loc.BUTTON_NEXT)).click()
+        self.wait_5s.until(ec.presence_of_element_located(loc.BUTTON_NEXT)).click()
         assert 'eco-friendly.html?p=2' in self.driver.current_url
