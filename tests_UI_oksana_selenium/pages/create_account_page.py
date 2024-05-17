@@ -11,14 +11,14 @@ class CreateNewAccount(BasePage):
     relative_url = 'customer/account/create/'
 
     @allure.step('Enter first name')
-    def create_first_name(self):
-        first_name = self.find(loc.FIRST_NAME)
-        first_name.send_keys('John')
+    def create_first_name(self, first_name):
+        first_name_field = self.find(loc.FIRST_NAME)
+        first_name_field.send_keys(first_name)
 
     @allure.step('Enter last name')
-    def create_last_name(self):
-        last_name = self.find(loc.LAST_NAME)
-        last_name.send_keys('Smith')
+    def create_last_name(self, last_name):
+        last_name_field = self.find(loc.LAST_NAME)
+        last_name_field.send_keys(last_name)
 
     @allure.step('Create a password')
     def create_password(self, password):
@@ -37,9 +37,9 @@ class CreateNewAccount(BasePage):
         email_field.send_keys(email)
 
     @allure.step('Complete registration with provided details')
-    def complete_registration(self, email, password):
-        self.create_first_name()
-        self.create_last_name()
+    def complete_registration(self, first_name, last_name, email, password):
+        self.create_first_name(first_name)
+        self.create_last_name(last_name)
         self.check_email(email)
         self.create_password(password)
         self.confirm_password(password)
@@ -57,10 +57,10 @@ class CreateNewAccount(BasePage):
         assert current_url == expected_url, f"Redirection failed. Expected {expected_url}, got {current_url}"
 
     @allure.step('Verify email error message')
-    def verify_email_error_message(self):
+    def verify_email_error_message(self, error_message):
         wait = WebDriverWait(self.driver, 10)
         error_message_email = wait.until(ec.visibility_of_element_located((By.CSS_SELECTOR, '#email_address-error')))
-        expected_error_text = 'Please enter a valid email address'
+        expected_error_text = error_message
         actual_error_text = error_message_email.text
         assert expected_error_text in actual_error_text, \
             f"Expected error message not found. Actual message: {actual_error_text}"

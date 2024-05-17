@@ -25,9 +25,9 @@ class ProductChecker(BasePage):
         add_to_wishlist_button.click()
 
     @allure.step("Check for the login requirement message")
-    def check_login_message(self):
+    def check_login_message(self, login_message):
         page_message = self.find(loc.LOGIN_MESSAGE)
-        expected_message = 'You must login or register to add items to your wishlist.'
+        expected_message = login_message
         assert page_message.text == expected_message
 
     @allure.step("Hover over and click on the third product")
@@ -47,10 +47,11 @@ class ProductChecker(BasePage):
         add_button.click()
 
     @allure.step("Verify color selection error message")
-    def verify_color_error_message(self):
+    def verify_color_error_message(self, error_message):
         color_error = WebDriverWait(self.driver, 10).until(
             ec.visibility_of_element_located((By.CSS_SELECTOR, "#super_attribute\\[93\\]-error")))
-        assert color_error.text == "This is a required field."
+        expected_error_text = error_message
+        assert color_error.text == expected_error_text
 
     @allure.step("Verify color selection")
     def select_color(self):
@@ -58,15 +59,14 @@ class ProductChecker(BasePage):
         color.click()
 
     @allure.step("Set the product quantity")
-    def set_product_quantity(self):
+    def set_product_quantity(self, search_word):
         quantity_items = self.find(loc.PRODUCT_QUANTITY)
         quantity_items.clear()
-        search_word = '10200'
         quantity_items.send_keys(search_word)
 
     @allure.step("Verify error message for quantity limit")
-    def verify_quantity_error_message(self):
+    def verify_quantity_error_message(self, error_message):
         error_message_element = self.find(loc.VERIFY_QUANTITY_ERROR_MESSAGE)
-        expected_message = 'The maximum you may purchase is 10000.'
-        assert error_message_element.text == expected_message, \
-            f"Expected error message '{expected_message}', but got '{error_message_element.text}'"
+        expected_error_text = error_message
+        assert error_message_element.text == expected_error_text, \
+            f"Expected error message '{expected_error_text}', but got '{error_message_element.text}'"
