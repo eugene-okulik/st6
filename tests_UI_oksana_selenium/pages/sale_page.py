@@ -11,16 +11,17 @@ class SaleChecker(BasePage):
     relative_url = 'sale.html'
 
     @allure.step("Search for a product")
-    def search_for_product(self):
+    def search_for_product(self, send_keys):
         search_input = self.find(loc.SEARCH_INPUT)
         search_input.click()
-        search_input.send_keys("123")
+        search_input.send_keys(send_keys)
         search_input.send_keys(Keys.ENTER)
 
     @allure.step("Verify search results")
-    def verify_search_results(self):
+    def verify_search_results(self, error_message):
         search_result = self.find(loc.SEARCH_RESULT)
-        assert 'Your search returned no results.' in search_result.text
+        expected_error_text = error_message
+        assert expected_error_text in search_result.text
 
     @allure.step("Click on 'More' button")
     def click_more_button(self):
@@ -35,10 +36,11 @@ class SaleChecker(BasePage):
         actions.double_click(product).perform()
 
     @allure.step("Verify product availability")
-    def verify_product_availability(self):
+    def verify_product_availability(self, error_message):
         find_sale_text = WebDriverWait(self.driver, 10).until(
             ec.visibility_of_element_located(loc.IN_STOCK))
-        assert find_sale_text.text == 'IN STOCK', "Product is not in stock"
+        expected_error_text = error_message
+        assert find_sale_text.text == expected_error_text
 
     @allure.step("Navigate to the category 'Shorts'")
     def navigate_to_shorts(self):
