@@ -49,6 +49,6 @@ def test_2(page: Page):
 
     page.locator('#submit').click()
 
-    rows = page.locator('//tbody/tr[1]')
+    rows = page.locator('//tbody/tr[1]/td[2]')
 
-    expect(rows).to_have_text("Student NameVolha Pikulenka")
+    expect(rows).to_have_text("Volha Pikulenka")
