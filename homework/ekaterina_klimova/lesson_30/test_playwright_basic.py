@@ -11,6 +11,3 @@ def test_authentication(page: Page):
     user_name.fill('Kate')
     passw.fill('QWerty12345^')
     login_button.click()
-
-
-
