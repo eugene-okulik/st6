@@ -43,4 +43,3 @@ def test_rename_name(page):
     page.locator('[data-trigger-id="digitalmat-1"]').click()
     product_name = page.locator('[data-autom="DigitalMat-overlay-header-0-0"]')
     expect(product_name).to_have_text('яблокофон 15 про')
-# Dialog, Response,
