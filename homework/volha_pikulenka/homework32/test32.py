@@ -44,4 +44,6 @@ def test_task3(page):
 
     page.goto(' https://www.apple.com/shop/buy-iphone')
     page.get_by_role('link', name='All Models').click()
-    page.locator('[src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-card-40-iphone15prohero-202309?wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1693086290312"]').click()
+    page.locator('[src="https://store.storeimages.cdn-apple.com/4982'
+                 '/as-images.apple.com/is/iphone-card-40-iphone15prohero-202309?'
+                 'wid=680&hei=528&fmt=p-jpg&qlt=95&.v=1693086290312"]').click()
