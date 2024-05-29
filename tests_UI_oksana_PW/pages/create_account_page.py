@@ -64,8 +64,3 @@ class CreateNewAccount(BasePage):
     @allure.step('Verify redirection to expected page')
     def verify_redirection_account_create(self, expected_url):
         expect(self.page).to_have_url(expected_url, timeout=10000)
-
-    # @allure.step('Verify specific error message')
-    # def verify_error_message(self, expected_message):
-    #     error_messages = self.find(loc.ERROR_MESSAGE)
-    #     expect(error_messages).to_contain_text(expected_message)
