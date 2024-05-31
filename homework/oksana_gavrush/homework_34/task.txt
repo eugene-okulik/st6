@@ -1,0 +1,25 @@
+Go to first line in file:  g
+Go to last line in file:  G
+Forward one window:  f  ^F  ^V  SPACE
+Forward one line:  e  ^E  j  ^N  CR
+Backward one line:  y  ^Y  k  ^K  ^P
+Search forward for matching line: введите / за которым следует искомый текст, затем нажмите Enter
+Search backward for matching line: введите ? за которым следует искомый текст, затем нажмите Enter
+Repeat previous search: n
+Repeat previous search in reverse direction: N
+
+/dev/null - (c)
+/dev/zero - (c)
+/dev/sda - (b)
+/dev/tty - (c)
+/root - (d)
+/etc/passwd - (-)
+/proc/mounts - (l)
+/bin/ls - (-)
+/bin/zcat - (-)
+
+- для обычных файлов
+d для директорий
+c для символьных устройств
+b для блочных устройств
+l для символических ссылок
