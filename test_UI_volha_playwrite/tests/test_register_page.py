@@ -1,14 +1,11 @@
-import time
-
 from test_UI_volha_playwrite.tests.data_test.data_test import (first_name_faker,
-                                                     last_name_faker,
-                                                     email_faker,
-                                                     password_faker,
-                                                     invalid_email)
+                                                               last_name_faker,
+                                                               email_faker,
+                                                               password_faker,
+                                                               invalid_email)
 
 
 def test_register_flow(register_page, account_page):
-
     register_page.open()
     register_page.fill_the_form(first_name_faker,
                                 last_name_faker,
