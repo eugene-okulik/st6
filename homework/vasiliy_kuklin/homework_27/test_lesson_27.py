@@ -5,7 +5,6 @@ from selenium.webdriver.support.select import Select
 import pytest
 
 
-
 @pytest.fixture()
 def driver():
     options = Options()
