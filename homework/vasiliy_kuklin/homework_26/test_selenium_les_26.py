@@ -48,7 +48,7 @@ def test_filling_form(driver):
 
     state_field = driver.find_element(By.ID, 'state')
     state_field.click()
-    state_field_select = driver.find_element(By.XPATH,"//div[contains(text(), 'Haryana')]")
+    state_field_select = driver.find_element(By.XPATH, "//div[contains(text(), 'Haryana')]")
     state_field_select.click()
 
     city_field = driver.find_element(By.ID, 'city')
