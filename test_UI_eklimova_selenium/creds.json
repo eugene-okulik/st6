@@ -1,0 +1,8 @@
+{
+  "firstname": "kate",
+  "lastname": "klimova",
+  "email": "test@test.eww",
+  "password": "QWerty!@3456",
+  "confirmation_password": "QWerty!@3456",
+  "wrong_confirmation_password": "QWerty!23456"
+}
