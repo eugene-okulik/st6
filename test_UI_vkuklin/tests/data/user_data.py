@@ -13,7 +13,7 @@ user_data_fields = {
 }
 
 bad_email_numbers = '111111111@111111.11'
-bad_email_long_text = 'asdahdgashdgashgdsahdgshagdhasgdhasgdhasgdhasgdhasgdahsdghasgdhasgdhasdghasgdhasgdhasgdhasgdhasgdhasgdhasgdhasgdhasdgsahdghasgdhasgdhasgdhagsdhsagdhasgd'
+bad_email_long_text = 'asdahdgashdgashgdsahdgshagdhasgdhasgdhasgdhasgdhasgdahsdghasgdhasgdhasdghasgdhasgdhasgdhasg'
 bad_email_not_dog = 'mail.ru'
 bad_email_not_point = 'jopa@mail,ru'
 bad_email_not_domain = 'jopa@mail'

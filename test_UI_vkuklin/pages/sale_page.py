@@ -8,8 +8,8 @@ class SalePage(BasePage):
 
     @allure.step('Check header sale')
     def check_header_sale(self):
-        header = self.find(loc.HEADER_SALE)
-        assert header.text == 'Sale'
+        header_sale = self.find(loc.HEADER_SALE)
+        assert header_sale.text == 'Sale'
 
     @allure.step('Check image promo block')
     def check_image_promo_block(self):
