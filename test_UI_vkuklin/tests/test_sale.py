@@ -8,7 +8,7 @@ def test_header(sale_page):
 
 
 @pytest.mark.regression
-def test_header(sale_page):
+def test_img_promo_block(sale_page):
     sale_page.open()
     sale_page.check_image_promo_block()
 
