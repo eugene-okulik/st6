@@ -1,11 +1,6 @@
 import allure
 from test_UI_vkuklin.pages.base_page import BasePage
 from test_UI_vkuklin.pages.locators.locators import CreatePage as loc
-from test_UI_vkuklin.tests.data.user_data import bad_email_numbers
-from test_UI_vkuklin.tests.data.user_data import bad_email_long_text
-from test_UI_vkuklin.tests.data.user_data import bad_email_not_point
-from test_UI_vkuklin.tests.data.user_data import bad_email_not_domain
-from test_UI_vkuklin.tests.data.user_data import bad_email_not_dog
 from selenium.webdriver.common.keys import Keys
 from test_UI_vkuklin.tests.data.user_data import first_name
 from test_UI_vkuklin.tests.data.user_data import last_name
@@ -17,61 +12,23 @@ from test_UI_vkuklin.tests.data.user_data import confirm_passwd
 class CreatePage(BasePage):
     relative_url = 'customer/account/create/'
 
-    @allure.step('Check required fields')
-    def check_required_fields(self):
+    @allure.step('Check required fields into')
+    def check_click_button_create(self):
         button_create = self.find(loc.BUTTON_CREATE)
         button_create.click()
-        first_name_notice = self.find(loc.ERROR_FIRST_NAME)
-        last_name_notice = self.find(loc.ERROR_LAST_NAME)
-        email_address_notice = self.find(loc.ERROR_EMAIL_ADDRESS)
-        password_notice = self.find(loc.ERROR_PASSWORD)
-        confirm_password_notice = self.find(loc.ERROR_CONFIRM_PASSWORD)
-        assert (first_name_notice.text == 'This is a required field.'
-                and last_name_notice.text == 'This is a required field.'
-                and email_address_notice.text == 'This is a required field.'
-                and password_notice.text == 'This is a required field.'
-                and confirm_password_notice.text == 'This is a required field.')
 
-    @allure.step('check email bad numbers')
-    def check_email_numbers(self):
-        email_address = self.find(loc.EMAIL_ADDRESS)
-        email_address.send_keys(bad_email_numbers)
-        button_create = self.find(loc.BUTTON_CREATE)
-        button_create.click()
-        email_address_error = self.find(loc.EMAIL_ADDRESS_ERROR)
-        assert email_address_error.text == 'Please enter a valid email address (Ex: johndoe@domain.com).'
+    @allure.step('Check required fields results')
+    def check_required_fields(self, data_field):
+        field_notice = self.find(data_field)
+        assert field_notice.text == 'This is a required field.'
 
-    @allure.step('check email bad long text')
-    def check_email_long_text(self):
+    @allure.step('past email into')
+    def past_email_into(self, data_field):
         email_address = self.find(loc.EMAIL_ADDRESS)
-        email_address.send_keys(bad_email_long_text)
-        button_create = self.find(loc.BUTTON_CREATE)
-        button_create.click()
-        email_address_error = self.find(loc.EMAIL_ADDRESS_ERROR)
-        assert email_address_error.text == 'Please enter a valid email address (Ex: johndoe@domain.com).'
+        email_address.send_keys(data_field)
 
-    @allure.step('check email bad not dog')
-    def check_email_not_dog(self):
-        email_address = self.find(loc.EMAIL_ADDRESS)
-        email_address.send_keys(bad_email_not_dog)
-        button_create = self.find(loc.BUTTON_CREATE)
-        button_create.click()
-        email_address_error = self.find(loc.EMAIL_ADDRESS_ERROR)
-        assert email_address_error.text == 'Please enter a valid email address (Ex: johndoe@domain.com).'
-
-    @allure.step('check email bad not point')
-    def check_email_not_point(self):
-        email_address = self.find(loc.EMAIL_ADDRESS)
-        email_address.send_keys(bad_email_not_point)
-        button_create = self.find(loc.BUTTON_CREATE)
-        button_create.click()
-        email_address_error = self.find(loc.EMAIL_ADDRESS_ERROR)
-        assert email_address_error.text == 'Please enter a valid email address (Ex: johndoe@domain.com).'
-
-    @allure.step('check email bad not domain')
-    def check_email_not_domain(self):
-        email_address = self.find(loc.EMAIL_ADDRESS)
-        email_address.send_keys(bad_email_not_domain)
+    @allure.step('check email field')
+    def check_email_field(self):
         button_create = self.find(loc.BUTTON_CREATE)
         button_create.click()
         email_address_error = self.find(loc.EMAIL_ADDRESS_ERROR)
