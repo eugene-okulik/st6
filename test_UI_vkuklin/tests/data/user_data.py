@@ -1,13 +1,13 @@
 first_name = 'Piter'
 last_name = 'Pan'
-email_address = 'piter@pan123.com'
+email_address = 'piter@pan1234.com'
 passwd = '123QQQaa***'
 confirm_passwd = '+++123Qq'
 
 user_data_fields = {
     'first_name': 'Piter',
     'last_name': 'Pan',
-    'email_address': 'piter@pan.com',
+    'email_address': 'piter@pan2.com',
     'password': '123QQQ***',
     'confirm_password': 'password'
 }
