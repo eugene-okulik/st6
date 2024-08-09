@@ -1,0 +1,27 @@
+task 2:
+Go to first line in file: g
+Go to last line in file: G
+Forward one window: ctrl + f
+Forward one line:  Enter or j
+Backward one line: k
+Search forward for matching line: /text
+Search backward for matching line: ?text
+Repeat previous search: n
+Repeat previous search in reverse direction: N
+
+task 3
+Определите типы этих файлов:
+/dev/null  - тип "character device"  (crw-rw-rw- 1 root root 1, 3 Dec 31  2023 dev/null)
+/dev/zero - тип "character device"  (crw-rw-rw- 1 root root 1, 5 Dec 31  2023 dev/zero)
+/dev/sda
+/dev/tty - тип "character device"  (crw-rw-rw-  1 root tty)
+/root  - тип "directory"  (drwx------)
+/etc/passwd  - тип "file"  (-rw-r--r--)
+/proc/mounts - тип "symlink"  (lrwxrwxrwx)
+/bin/ls - тип "file"  (-rwxr-xr-x)
+/bin/zcat - тип "file"  (-rwxr-xr-x)
+
+- означает обычный файл.
+d означает каталог (directory).
+l означает символическую ссылку (symlink).
+c и b означают специальные файлы устройств (character device и block device).
