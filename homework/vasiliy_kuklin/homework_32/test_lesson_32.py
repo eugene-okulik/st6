@@ -1,8 +1,6 @@
 import json
-
 from playwright.sync_api import Page, BrowserContext, expect, Route
 import pytest
-from time import sleep
 import re
 
 
@@ -20,7 +18,6 @@ def test_alert(page: Page):
     button.click()
     result_text = page.locator('#result-text')
     expect(result_text).to_have_text('Ok')
-    sleep(3)
 
 
 def test_new_tab(page, context: BrowserContext):
@@ -33,7 +30,6 @@ def test_new_tab(page, context: BrowserContext):
     result = page2.locator('#result-text')
     expect(result).to_have_text('I am a new page in a new tab')
     expect(button).to_be_enabled()
-    sleep(3)
 
 
 def test_iphone_rename(page):
@@ -47,4 +43,3 @@ def test_iphone_rename(page):
     page.route(re.compile('/step0_iphone/'), change_response)
     page.goto('https://www.apple.com/shop/buy-iphone')
     page.locator('[data-trigger-id="digitalmat-1"]').click()
-    sleep(10)
