@@ -8,9 +8,9 @@ class EcoFriendlyPage(BasePage):
     relative_url = 'collections/eco-friendly.html'
 
     @allure.step('Check header')
-    def check_header(self):
+    def check_header(self, message):
         header = self.find(loc.HEADER_ECO_FRIENDLY)
-        expect(header).to_have_text('Eco Friendly')
+        expect(header).to_have_text(message)
 
     @allure.step('Check images cards')
     def check_img_cards(self):

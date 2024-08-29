@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.regression
 def test_header(sale_page):
     sale_page.open()
-    sale_page.check_header_sale()
+    sale_page.check_header_sale('Sale')
 
 
 @pytest.mark.regression

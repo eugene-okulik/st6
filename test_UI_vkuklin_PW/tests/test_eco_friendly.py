@@ -4,7 +4,7 @@ import pytest
 @pytest.mark.regression
 def test_header(eco_friendly_page):
     eco_friendly_page.open()
-    eco_friendly_page.check_header()
+    eco_friendly_page.check_header('Eco Friendly')
 
 
 @pytest.mark.regression

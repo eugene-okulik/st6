@@ -1,6 +1,6 @@
 first_name = 'Piter'
 last_name = 'Pan'
-email_address = 'piter@pan1234567890.com'
+email_address = 'piter12345@pan1234567890.com'
 passwd = '123QQQaa***'
 confirm_passwd = '+++123Qq'
 

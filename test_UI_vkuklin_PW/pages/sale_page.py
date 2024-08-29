@@ -8,9 +8,9 @@ class SalePage(BasePage):
     relative_url = 'sale.html'
 
     @allure.step('Check header sale')
-    def check_header_sale(self):
+    def check_header_sale(self, message):
         header_sale = self.find(loc.HEADER_SALE)
-        expect(header_sale).to_have_text('Sale')
+        expect(header_sale).to_have_text(message)
 
     @allure.step('Check image promo block')
     def check_image_promo_block(self):
