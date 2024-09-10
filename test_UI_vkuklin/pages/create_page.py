@@ -1,7 +1,9 @@
 import allure
-from test_UI_vkuklin.pages.base_page import BasePage
-from test_UI_vkuklin.pages.locators.locators import CreatePage as loc
+# from test_UI_vkuklin.pages.base_page import BasePage
+# from test_UI_vkuklin.pages.locators.locators import CreatePage as loc
 from selenium.webdriver.common.keys import Keys
+from st6.test_UI_vkuklin.pages.base_page import BasePage
+from st6.test_UI_vkuklin.pages.locators.locators import CreatePage as loc
 
 
 class CreatePage(BasePage):
