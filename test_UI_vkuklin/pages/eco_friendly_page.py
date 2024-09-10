@@ -4,6 +4,7 @@ import allure
 from st6.test_UI_vkuklin.pages.base_page import BasePage
 from st6.test_UI_vkuklin.pages.locators.locators import EcoFriendlyPage as loc
 
+
 class EcoFriendlyPage(BasePage):
     relative_url = 'collections/eco-friendly.html'
 

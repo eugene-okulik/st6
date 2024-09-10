@@ -4,6 +4,7 @@ import allure
 from st6.test_UI_vkuklin.pages.base_page import BasePage
 from st6.test_UI_vkuklin.pages.locators.locators import SalePage as loc
 
+
 class SalePage(BasePage):
     relative_url = 'sale.html'
 
