@@ -1,5 +1,4 @@
 import pytest
-from test_UI_vkuklin.pages.locators.locators import CreatePage as loc
 from test_UI_vkuklin.tests.data.user_data import bad_email_numbers
 from test_UI_vkuklin.tests.data.user_data import bad_email_long_text
 from test_UI_vkuklin.tests.data.user_data import bad_email_not_point
@@ -35,28 +34,28 @@ def test_bad_email_numbers(create_page):
 @pytest.mark.regression
 def test_bad_email_long_text(create_page):
     create_page.open()
-    create_page.past_email_into(bad_email_long_text)
+    create_page.insert_email(bad_email_long_text)
     create_page.check_email_field()
 
 
 @pytest.mark.regression
 def test_bad_email_not_dog(create_page):
     create_page.open()
-    create_page.past_email_into(bad_email_not_dog)
+    create_page.insert_email(bad_email_not_dog)
     create_page.check_email_field()
 
 
 @pytest.mark.regression
 def test_bad_email_not_point(create_page):
     create_page.open()
-    create_page.past_email_into(bad_email_not_point)
+    create_page.insert_email(bad_email_not_point)
     create_page.check_email_field()
 
 
 @pytest.mark.regression
 def test_bad_email_not_domain(create_page):
     create_page.open()
-    create_page.past_email_into(bad_email_not_domain)
+    create_page.insert_email(bad_email_not_domain)
     create_page.check_email_field()
 
 
